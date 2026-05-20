@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+
+# Editor swap / backup files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
