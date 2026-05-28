@@ -421,6 +421,12 @@ const EDGE_RATIONALE = {
   // HEE outgoing, IEQ, Social
   'O-IEQ':   "Residential overcrowding degrades indoor environmental quality through elevated per-occupant moisture generation (respiration, cooking, bathing, laundry) and reduced effective ventilation per occupant, distributed over a fixed building envelope and ventilation capacity. This mechanism is distinct from the dwelling-form pathway captured in Housing_Characteristics → IEQ: the envelope determines ventilation design, while occupancy determines the load placed on it. Empirical evidence links occupant density to elevated indoor humidity, condensation risk, and mould prevalence in UK and international housing. The English Housing Survey operationalises this link through the HHSRS damp-and-mould hazard assessment, which incorporates occupancy density as a contributing factor alongside dwelling condition.",
 
+  'HEE-FP':  "The energy efficiency of the dwelling stock is a definitional determinant of fuel poverty: the Low Income Low Energy Efficiency (LILEE) metric used in England embeds the efficiency rating directly in its threshold, so areas with less efficient stock mechanically exhibit higher modelled prevalence. Beyond the definitional link, the mechanism is that a more efficient dwelling requires less delivered energy to reach an adequate internal temperature, lowering the expenditure needed for thermal comfort; evidence indicates that home energy-efficiency schemes significantly reduce fuel-poverty prevalence (Sovacool 2015). The edge is oriented HEE → FP because dwelling efficiency is logically prior to the affordability outcome it helps determine.",
+  'EC-FP':   "Household income is the second definitional input to fuel poverty: the low-income component is assessed against an income threshold, so area-level economic capital is constitutive of measured fuel poverty independent of dwelling efficiency. The mechanism is direct — for a given energy cost, lower income raises the share of expenditure absorbed by energy and the likelihood of falling below the affordability threshold. This edge is required for FP to be correctly specified; omitting it would misrepresent fuel poverty as a function of efficiency alone. EC already enters the graph as an upstream confounder of HEE (EC → HEE); the EC → FP edge is conceptually distinct, capturing income's role in affordability after efficiency is determined, and the two should not be conflated.",
+  'C-FP':    "Climatic heating demand is a recognised driver of fuel poverty: colder areas require more delivered energy to maintain an adequate internal temperature, raising the energy cost faced for a given dwelling efficiency and income. This edge parallels the existing C → HEE and C → IEQ edges, under which climate already operates through heating demand. The spatial patterning of fuel poverty in England is documented by Robinson et al. (2023). Energy price is excluded as a separate determinant because, in the England-and-Wales LSOA cross-section, tariffs are effectively national and do not vary across units, contributing nothing to identification.",
+  'FP-MH':   "Fuel poverty is consistently associated with poorer mental health: in a global scoping review, Khavandi et al. (2024) found a detrimental association in 46 of 47 included studies and organised the pathways into economic, social, behavioural, and environmental mechanisms. The association is observational and confounded by income and housing quality, so it does not by itself establish causation; here those common causes (EC, H) are conditioned, and the residual edge carries the affordability mechanism net of them. The proposed mechanism is psychosocial financial strain — anxiety over unaffordable bills, the heat-or-eat trade-off, and the chronic stress of an under-heated home. This edge constitutes the economic/affordability arm of HEE's effect on mental health, running parallel to the physical/thermal arm carried by HEE → IEQ → MH.",
+  'FP-PH':   "Fuel poverty is linked to adverse physical health, particularly cold-related cardiovascular and respiratory morbidity and excess winter mortality (Marmot Review Team 2011; Maidment et al. 2014). As with FP → MH, the raw association is confounded by income and dwelling characteristics, which the adjustment set addresses; the edge represents the effect of unaffordable energy net of those common causes. The mechanism operates through sustained exposure to inadequate indoor temperatures and the diversion of constrained budgets away from food and health-protective expenditure, with energy-poor households forgoing medicine and healthcare to meet bills. Evidence is not uniform — Poortinga et al. (2018) found no clear reduction in emergency hospital admissions following efficiency investment — so the causal claim is made cautiously. Because PH → MH already exists, this edge also opens an indirect FP → PH → MH sub-path.",
+
   'HEE-IEQ': "Energy efficiency improvements alter indoor environments in complex ways. Properly implemented retrofits that incorporate adequate ventilation yield net IEQ gains; however, retrofits undertaken without ventilation provision can trap indoor pollutants and worsen air quality. The direction and magnitude of the IEQ effect is therefore contingent on retrofit specification.",
   'HEE-NO':  "Double- and triple-glazing, solid wall insulation, and improvements in airtightness reduce the transmission of external noise through the building envelope. Standard double glazing achieves a reduction of approximately 30–35 dB relative to single glazing, with further gains from triple glazing and improved frame sealing.",
   'IEQ-PH':  "Adverse indoor environmental conditions — including dampness, mould, cold temperatures, and elevated concentrations of indoor pollutants — cause respiratory disease, cardiovascular strain, and excess winter mortality. Meta-analyses report odds ratios of 1.34–1.75 for respiratory outcomes associated with damp and mouldy housing.",
@@ -441,7 +447,7 @@ const DOMAINS = {
   'Structural Confounder':             { color: '#C87830', nodes: ['D', 'ED', 'EC', 'H', 'T', 'U', 'C'] },
   'Exposure':                          { color: '#D4A017', nodes: ['HEE'] },
   'Environmental/Proximal Mediator':   { color: '#5A9060', nodes: ['IEQ', 'AP', 'GS', 'NO', 'O'] },
-  'Social/Structural Mediator':        { color: '#4878A8', nodes: ['N', 'NS', 'A', 'SC', 'DC', 'P', 'SI'] },
+  'Social/Structural Mediator':        { color: '#4878A8', nodes: ['N', 'NS', 'A', 'SC', 'DC', 'P', 'SI', 'FP'] },
   'Health Mediator':                   { color: '#30A890', nodes: ['PH', 'SA'] },
   'Outcome':                           { color: '#C02828', nodes: ['MH'] },
 };
@@ -459,6 +465,7 @@ const FULL_NAMES = {
   'AP':  'Air Pollution',                'GS': 'Green Space',
   'A':   'Accessibility',                'SI': 'Isolation',
   'PH':  'Physical Health',              'MH': 'Mental Health',
+  'FP':  'Fuel Poverty',
 };
 
 const DISPLAY = {
@@ -471,6 +478,7 @@ const DISPLAY = {
   'IEQ': 'IEQ',              'NO': 'Noise',             'AP': 'Air\nPollution',
   'GS':  'Green\nSpace',     'A':  'Access-\nibility',  'SI': 'Isolation',
   'PH':  'Physical\nHealth', 'MH': 'Mental\nHealth',
+  'FP':  'Fuel\nPoverty',
 };
 
 const ADJ = new Set(['C', 'EC', 'H', 'T', 'U']);
@@ -480,7 +488,7 @@ const LAYERS = [
   ['D', 'ED', 'EC'],
   ['N', 'P'],
   ['H', 'HEE', 'T', 'O', 'NS'],
-  ['SC', 'DC', 'SA'],
+  ['SC', 'DC', 'SA', 'FP'],
   ['IEQ', 'NO', 'AP', 'GS', 'A', 'SI'],
   ['PH', 'MH'],
 ];
@@ -513,6 +521,8 @@ const rawEdges = [
   ['DC','SI'],['DC','MH'],
   ['SA','MH'],['SA','PH'],
   ['PH','MH'],
+  ['HEE','FP'],['EC','FP'],['C','FP'],
+  ['FP','MH'],['FP','PH'],
 ];
 
 // ── Node / link objects ───────────────────────────────────────────────────────
