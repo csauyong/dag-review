@@ -99,6 +99,7 @@ svg { width: 100%; height: 100%; display: block; }
 #tooltip .name { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 3px; }
 #tooltip .domain { color: #8a92b8; font-size: 10.5px; }
 #tooltip .stats { color: #c4cce5; margin-top: 5px; font-size: 10.5px; }
+#tooltip .node-tip-def { color: #b6bee0; font-size: 10.5px; line-height: 1.5; margin-top: 5px; max-width: 280px; }
 #tooltip .edge-label { font-size: 12.5px; font-weight: 600; color: #f5c542; margin-bottom: 5px; }
 #tooltip .edge-blurb { color: #d8dcf0; font-size: 10.5px; line-height: 1.55; }
 #tooltip .edge-hint { color: #6b7296; font-size: 10px; margin-top: 6px; font-style: italic; }
@@ -126,6 +127,12 @@ svg { width: 100%; height: 100%; display: block; }
   background: #1f4a2a; color: #8cf0a8; border: 1px solid #3a8a4e;
   border-radius: 4px; padding: 1px 7px; font-size: 10.5px; display: inline-block;
   margin-top: 6px;
+}
+#panel .node-def { color: #d8dcf0; font-size: 11.5px; line-height: 1.6; margin-top: 9px; }
+#panel .node-role { color: #c4cce5; font-size: 11px; margin-top: 7px; }
+#panel .node-role-label {
+  color: #6b7296; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.8px;
+  font-weight: 600; margin-right: 6px;
 }
 #panel .sec {
   color: #6b7296; font-size: 9.5px; text-transform: uppercase;
@@ -340,6 +347,50 @@ svg { width: 100%; height: 100%; display: block; }
 #assumptions-view::-webkit-scrollbar-track { background: transparent; }
 #assumptions-view::-webkit-scrollbar-thumb { background: #2a3060; border-radius: 4px; }
 #assumptions-view::-webkit-scrollbar-thumb:hover { background: #3a4478; }
+
+/* ── Definitions view ─────────────────────────────────────────────────────── */
+#definitions-view {
+  flex: 1; overflow-y: auto; display: none;
+  background: radial-gradient(ellipse at top, #131733 0%, #0b0e1f 70%);
+  padding: 32px 0 64px;
+}
+#definitions-view.on { display: block; }
+.def-wrap { max-width: 920px; margin: 0 auto; padding: 0 28px; }
+.def-intro { color: #aab2d6; font-size: 13px; line-height: 1.7; margin-bottom: 28px; }
+.def-intro .em { color: #f4f6ff; font-weight: 500; }
+
+.def-group { margin-bottom: 26px; }
+.def-group > h2 {
+  font-size: 11px; font-weight: 600; color: #f4f6ff; margin: 0 0 12px;
+  text-transform: uppercase; letter-spacing: 0.9px;
+  display: flex; align-items: center; gap: 9px;
+}
+.def-group > h2 .dot {
+  width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0;
+  background: var(--accent, #4f72e0);
+}
+.def-list { display: flex; flex-direction: column; gap: 10px; }
+.def-card {
+  background: rgba(17, 22, 48, 0.55); border: 1px solid #232954;
+  border-radius: 9px; padding: 14px 18px;
+  border-left: 4px solid var(--accent, #4f72e0);
+}
+.def-card .def-head {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 5px;
+}
+.def-card .def-name { font-size: 14px; font-weight: 600; color: #f4f6ff; }
+.def-card .def-abbr { font-size: 11px; color: #6b7296; font-weight: 500; }
+.def-card .def-role {
+  margin-left: auto; font-size: 10.5px; color: #c4cce5;
+  background: #1d2347; border: 1px solid #2a3060; border-radius: 5px;
+  padding: 2px 9px; white-space: nowrap;
+}
+.def-card .def-desc { font-size: 12.5px; line-height: 1.65; color: #d8dcf0; }
+
+#definitions-view::-webkit-scrollbar { width: 9px; }
+#definitions-view::-webkit-scrollbar-track { background: transparent; }
+#definitions-view::-webkit-scrollbar-thumb { background: #2a3060; border-radius: 4px; }
+#definitions-view::-webkit-scrollbar-thumb:hover { background: #3a4478; }
 </style>
 </head>
 <body>
@@ -349,6 +400,7 @@ svg { width: 100%; height: 100%; display: block; }
   <span class="hint">Click node or edge · Drag to reposition · Scroll to zoom · <kbd style="background:#262c54;border:1px solid #3a4478;border-radius:3px;padding:1px 5px;font-family:inherit;font-size:10px;color:#c4cce5;">/</kbd> to search · <kbd style="background:#262c54;border:1px solid #3a4478;border-radius:3px;padding:1px 5px;font-family:inherit;font-size:10px;color:#c4cce5;">Esc</kbd> to reset</span>
   <div id="tabs">
     <button class="tab active" data-view="dag">DAG</button>
+    <button class="tab" data-view="definitions">Definitions</button>
     <button class="tab" data-view="assumptions">Assumptions</button>
   </div>
   <span id="fb-status" title="Expert-feedback connection"><span class="dot"></span><span class="txt">feedback: loading…</span></span>
@@ -474,6 +526,17 @@ svg { width: 100%; height: 100%; display: block; }
         change-score design, so it sits in C and cross-references B.
       </p>
     </div>
+  </div>
+</div>
+
+<div id="definitions-view">
+  <div class="def-wrap">
+    <p class="def-intro">
+      Node schema for the causal DAG: 25 constructs with hypothesised causal roles.
+      Roles represent <span class="em">theoretical priors</span>, specified prior to
+      formal identification analysis and subject to revision through expert review.
+    </p>
+    <div id="def-groups"></div>
   </div>
 </div>
 
@@ -621,6 +684,37 @@ const FULL_NAMES = {
   'A':   'Accessibility',                'SI': 'Isolation',
   'PH':  'Physical Health',              'MH': 'Mental Health',
   'FP':  'Fuel Poverty',
+};
+
+// ── Node definitions (parsed from variable-schema table) ──────────────────────
+// Each node: description (construct content) + role (hypothesised causal role,
+// a theoretical prior specified prior to formal identification analysis).
+const NODE_INFO = {
+  'HEE':  { desc: 'Home Energy Efficiency: insulation, glazing, heating system quality, and airtightness.', role: 'Exposure' },
+  'MH':   { desc: 'Mental Health: rates of depression, anxiety, chronic stress, and related outcomes.', role: 'Outcome' },
+  'EC':   { desc: 'Economic Capital: financial resources including income levels and employment status.', role: 'Primary confounder' },
+  'ED':   { desc: 'Education: educational attainment and health literacy.', role: 'Primary confounder' },
+  'H':    { desc: 'Housing Characteristics: physical dwelling form — building age, construction era and dwelling type (detached, semi-detached, terraced, flat).', role: 'Physical confounder' },
+  'T':    { desc: 'Tenure: legal occupancy status — owner-occupied, private rental, or social rental.', role: 'Structural confounder' },
+  'D':    { desc: 'Demographics: age, race, gender, and family structure.', role: 'Baseline confounder' },
+  'U':    { desc: 'Urbanicity: degree of urban versus rural setting.', role: 'Macro-confounder' },
+  'C':    { desc: 'Climate: exogenous climate conditions — regional temperatures, flood risk, and extreme weather.', role: 'Exogenous variable' },
+  'IEQ':  { desc: 'Indoor Environmental Quality: thermal comfort, damp, mould, and indoor pollutants.', role: 'Proximal mediator' },
+  'FP':   { desc: 'Fuel Poverty: household inability to afford adequate warmth, operationalised via the Low Income Low Energy Efficiency (LILEE) indicator; jointly determined by dwelling efficiency, energy prices, and household income.', role: 'Proximal mediator' },
+  'AP':   { desc: 'Air Pollution: ambient outdoor air quality (PM₂.₅, NO₂).', role: 'Environmental mediator' },
+  'GS':   { desc: 'Green Space: access to and quality of parks, trees, and blue spaces.', role: 'Environmental mediator' },
+  'NO':   { desc: 'Noise: area-level environmental noise (road, rail, aircraft) measured via L_den/L_night.', role: 'Environmental mediator' },
+  'O':    { desc: 'Overcrowding: density of residents relative to number of rooms.', role: 'Physical mediator' },
+  'N':    { desc: 'Neighbourhood: latent area-level construct representing the geographic unit at which household-level factors aggregate into shared environmental exposures; the node through which household-level and structural causes are transmitted to area-level environmental and social mediators.', role: 'Scale-bridging construct' },
+  'NS':   { desc: 'Neighbourhood Stress: chronic neighbourhood-level stressors, including crime, perceived unsafety, physical disorder and dereliction, and anti-social behaviour.', role: 'Social mediator' },
+  'A':    { desc: 'Accessibility: physical ease of access to healthcare, employment, and services.', role: 'Social mediator' },
+  'SC':   { desc: 'Social Capital: area-level civic participation, community trust, and associational density.', role: 'Social mediator' },
+  'DC':   { desc: 'Digital Capital: broadband availability, speed, and digital literacy or exclusion at the area level.', role: 'Structural mediator' },
+  'P':    { desc: 'Policy Scheme Access: area-level uptake of, and eligibility for, energy assistance and weatherisation programmes (e.g. ECO, Warm Home Discount).', role: 'Policy mediator' },
+  'SI':   { desc: 'Isolation: social isolation, loneliness, and lack of community belonging.', role: 'Psychological mediator' },
+  'PH':   { desc: 'Physical Health: respiratory health, cardiovascular disease, and mortality.', role: 'Health mediator' },
+  'SA':   { desc: 'Substance Abuse: area-level prevalence of alcohol and drug misuse.', role: 'Health mediator' },
+  'U_AH': { desc: 'Unobserved legacy of historical planning decisions, disinvestment, and structural disadvantage.', role: 'Unmeasured root cause' },
 };
 
 const DISPLAY = {
@@ -1052,8 +1146,10 @@ const tip = document.getElementById('tooltip');
 function showNodeTip(e, d) {
   const inn = links.filter(l => sid(l.target) === d.id).length;
   const out = links.filter(l => sid(l.source) === d.id).length;
+  const info = NODE_INFO[d.id];
   tip.innerHTML = `<div class="name">${FULL_NAMES[d.id]}</div>
-    <div class="domain">${d.domain}</div>
+    <div class="domain">${d.domain}${info ? ` &nbsp;·&nbsp; <i>${info.role}</i>` : ''}</div>
+    ${info ? `<div class="node-tip-def">${info.desc.split(/:\s/).slice(1).join(': ') || info.desc}</div>` : ''}
     <div class="stats">In: ${inn} &nbsp;·&nbsp; Out: ${out}${d.inAdj ? ' &nbsp;·&nbsp; <b style="color:#8effa0">Adjustment set</b>' : ''}</div>`;
   tip.classList.add('on');
 }
@@ -1103,6 +1199,8 @@ function selectNode(d) {
     <h3 style="color:${d.color}">${FULL_NAMES[d.id]}</h3>
     <div class="sub">${d.domain}</div>
     ${d.inAdj ? '<span class="adj-tag">✓ Adjustment set</span>' : ''}
+    ${NODE_INFO[d.id] ? `<div class="node-def">${NODE_INFO[d.id].desc}</div>
+    <div class="node-role"><span class="node-role-label">Hypothesised role</span> ${NODE_INFO[d.id].role}</div>` : ''}
     <div class="sec">Direct causes (${parents.size})</div>
     <div>${[...parents].map(id => `<span class="badge">${DISPLAY[id].replace('\n',' ')}</span>`).join('') || '<span style="color:#444">—</span>'}</div>
     <div class="sec">Direct effects (${children.size})</div>
@@ -1251,18 +1349,47 @@ document.getElementById('legend-header').addEventListener('click', () => {
   document.getElementById('legend').classList.toggle('collapsed');
 });
 
-// ── Tab switching (DAG / Assumptions) ─────────────────────────────────────────
+// ── Definitions view (built from NODE_INFO, grouped by domain) ────────────────
+(function buildDefinitions() {
+  const groups = document.getElementById('def-groups');
+  if (!groups) return;
+  for (const [dom, info] of Object.entries(DOMAINS)) {
+    const cards = info.nodes.map(id => {
+      const ni = NODE_INFO[id];
+      if (!ni) return '';
+      // Description text drops the leading "Name: " prefix already shown as the heading.
+      const desc = ni.desc.replace(/^[^:]+:\s*/, '');
+      return `<div class="def-card" style="--accent:${info.color}">
+        <div class="def-head">
+          <span class="def-name">${FULL_NAMES[id]}</span>
+          <span class="def-abbr">${id}</span>
+          <span class="def-role">${ni.role}</span>
+        </div>
+        <div class="def-desc">${desc.charAt(0).toUpperCase() + desc.slice(1)}</div>
+      </div>`;
+    }).join('');
+    groups.insertAdjacentHTML('beforeend',
+      `<div class="def-group" style="--accent:${info.color}">
+        <h2><span class="dot"></span>${dom}</h2>
+        <div class="def-list">${cards}</div>
+      </div>`);
+  }
+})();
+
+// ── Tab switching (DAG / Definitions / Assumptions) ───────────────────────────
 const tabBtns = document.querySelectorAll('#tabs .tab');
 const dagView = document.getElementById('svg-container');
 const toolbarEl = document.getElementById('toolbar');
 const asmView = document.getElementById('assumptions-view');
+const defView = document.getElementById('definitions-view');
 tabBtns.forEach(btn => btn.addEventListener('click', () => {
   const view = btn.dataset.view;
   tabBtns.forEach(b => b.classList.toggle('active', b === btn));
   const onDag = view === 'dag';
   dagView.style.display = onDag ? 'block' : 'none';
   toolbarEl.style.display = onDag ? 'flex' : 'none';
-  asmView.classList.toggle('on', !onDag);
+  asmView.classList.toggle('on', view === 'assumptions');
+  defView.classList.toggle('on', view === 'definitions');
 }));
 
 // ── Keyboard shortcuts ────────────────────────────────────────────────────────
