@@ -259,6 +259,87 @@ svg { width: 100%; height: 100%; display: block; }
 #panel::-webkit-scrollbar-track { background: transparent; }
 #panel::-webkit-scrollbar-thumb { background: #2a3060; border-radius: 4px; }
 #panel::-webkit-scrollbar-thumb:hover { background: #3a4478; }
+
+/* ── Tab bar ──────────────────────────────────────────────────────────────── */
+#tabs {
+  display: flex; gap: 2px; margin-left: 6px; align-self: stretch; align-items: flex-end;
+}
+.tab {
+  padding: 6px 16px; border: 1px solid transparent; border-bottom: none;
+  background: transparent; color: #8a92b8; cursor: pointer;
+  font-size: 12px; font-family: inherit; font-weight: 500;
+  border-radius: 6px 6px 0 0; transition: background 0.15s, color 0.15s;
+  position: relative; top: 1px;
+}
+.tab:hover { color: #d8dcf0; background: #171b38; }
+.tab.active {
+  color: #fff; background: #0b0e1f;
+  border-color: #1d2347; border-bottom: 1px solid #0b0e1f;
+}
+
+/* ── Assumptions view ─────────────────────────────────────────────────────── */
+#assumptions-view {
+  flex: 1; overflow-y: auto; display: none;
+  background: radial-gradient(ellipse at top, #131733 0%, #0b0e1f 70%);
+  padding: 32px 0 64px;
+}
+#assumptions-view.on { display: block; }
+.asm-wrap { max-width: 860px; margin: 0 auto; padding: 0 28px; }
+.asm-intro { color: #aab2d6; font-size: 13px; line-height: 1.7; margin-bottom: 28px; }
+.asm-intro .em { color: #f4f6ff; font-weight: 500; }
+
+.asm-theme {
+  background: rgba(17, 22, 48, 0.55); border: 1px solid #232954;
+  border-radius: 10px; padding: 18px 22px 20px; margin-bottom: 18px;
+  border-left: 4px solid var(--accent, #4f72e0);
+}
+.asm-theme h2 {
+  font-size: 15px; font-weight: 600; color: #f4f6ff; margin: 0 0 3px;
+  display: flex; align-items: baseline; gap: 9px;
+}
+.asm-theme h2 .key {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0;
+  background: var(--accent, #4f72e0); color: #0b0e1f; font-size: 12px; font-weight: 700;
+}
+.asm-theme h2 .nums { color: #6b7296; font-size: 11px; font-weight: 500; }
+.asm-theme .lede { color: #aab2d6; font-size: 12px; line-height: 1.6; margin: 6px 0 12px; }
+.asm-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.asm-item {
+  background: #11142a; border: 1px solid #1d2347; border-radius: 7px;
+  padding: 9px 13px; font-size: 12px; line-height: 1.6; color: #d8dcf0;
+}
+.asm-item .lbl { color: #f4f6ff; font-weight: 600; }
+.asm-item .lbl em { color: #8ea3ff; font-style: italic; font-weight: 600; }
+
+.asm-caveat {
+  background: rgba(61, 74, 40, 0.18); border: 1px solid #4a5a28;
+  border-left: 4px solid #c8b030; border-radius: 10px;
+  padding: 14px 20px; margin-bottom: 18px; font-size: 12.5px;
+  line-height: 1.65; color: #e6e2c8;
+}
+.asm-caveat .ttl {
+  color: #f0e6a8; font-weight: 600; text-transform: uppercase;
+  font-size: 10px; letter-spacing: 0.8px; display: block; margin-bottom: 4px;
+}
+
+.asm-notes {
+  background: rgba(17, 22, 48, 0.55); border: 1px solid #232954;
+  border-radius: 10px; padding: 16px 22px 18px;
+}
+.asm-notes h3 {
+  font-size: 10px; color: #8a92b8; text-transform: uppercase;
+  letter-spacing: 0.8px; font-weight: 600; margin: 0 0 10px;
+}
+.asm-note { font-size: 12px; line-height: 1.65; color: #c4cce5; margin-bottom: 10px; }
+.asm-note:last-child { margin-bottom: 0; }
+.asm-note strong { color: #f4f6ff; }
+.asm-note em { color: #8ea3ff; font-style: italic; }
+
+#assumptions-view::-webkit-scrollbar { width: 9px; }
+#assumptions-view::-webkit-scrollbar-track { background: transparent; }
+#assumptions-view::-webkit-scrollbar-thumb { background: #2a3060; border-radius: 4px; }
+#assumptions-view::-webkit-scrollbar-thumb:hover { background: #3a4478; }
 </style>
 </head>
 <body>
@@ -266,6 +347,10 @@ svg { width: 100%; height: 100%; display: block; }
 <div id="header">
   <h1>Urban Health Causal DAG<span class="arrow">·</span>HEE<span class="arrow">→</span>Mental Health</h1>
   <span class="hint">Click node or edge · Drag to reposition · Scroll to zoom · <kbd style="background:#262c54;border:1px solid #3a4478;border-radius:3px;padding:1px 5px;font-family:inherit;font-size:10px;color:#c4cce5;">/</kbd> to search · <kbd style="background:#262c54;border:1px solid #3a4478;border-radius:3px;padding:1px 5px;font-family:inherit;font-size:10px;color:#c4cce5;">Esc</kbd> to reset</span>
+  <div id="tabs">
+    <button class="tab active" data-view="dag">DAG</button>
+    <button class="tab" data-view="assumptions">Assumptions</button>
+  </div>
   <span id="fb-status" title="Expert-feedback connection"><span class="dot"></span><span class="txt">feedback: loading…</span></span>
 </div>
 
@@ -319,6 +404,76 @@ svg { width: 100%; height: 100%; display: block; }
     <button id="zoom-out" title="Zoom out">−</button>
     <hr>
     <button id="zoom-fit" title="Fit to view">⊡</button>
+  </div>
+</div>
+
+<div id="assumptions-view">
+  <div class="asm-wrap">
+    <p class="asm-intro">
+      The causal interpretation of this DAG rests on a set of identifying
+      assumptions, grouped below into four themes. Each is a condition under which
+      the area-level estimate of <span class="em">home energy efficiency → mental
+      health</span> can be read causally rather than merely associatively.
+    </p>
+
+    <div class="asm-theme" style="--accent:#D4A017">
+      <h2><span class="key">A</span> The exposure — home energy efficiency <span class="nums">(1, 8, 9, 10)</span></h2>
+      <p class="lede">Everything about what HEE <em>is</em>, how it acts, and how it's measured.</p>
+      <ul class="asm-list">
+        <li class="asm-item"><span class="lbl">Well-defined intervention / consistency.</span> An EPC-band move means the same thing everywhere.</li>
+        <li class="asm-item"><span class="lbl">Correctly signed / beneficial on average.</span> Adequate installation; no perverse net effect.</li>
+        <li class="asm-item"><span class="lbl">Linear / equal-step dose–response</span> across bands.</li>
+        <li class="asm-item"><span class="lbl">Measurement validity of the area-average EPC proxy.</span> Coverage gaps; over-prediction.</li>
+      </ul>
+    </div>
+
+    <div class="asm-theme" style="--accent:#4878A8">
+      <h2><span class="key">B</span> Temporal assumptions <span class="nums">(2, 4)</span></h2>
+      <p class="lede">About ordering in time and stability of measurement across the two waves.</p>
+      <ul class="asm-list">
+        <li class="asm-item"><span class="lbl">Correct temporal order.</span> Efficiency precedes the mental-health change.</li>
+        <li class="asm-item"><span class="lbl">Consistent measurement over time.</span> Depression coded the same in 2011 and 2019 — also the one <em>outcome</em>-measurement assumption.</li>
+      </ul>
+    </div>
+
+    <div class="asm-theme" style="--accent:#C87830">
+      <h2><span class="key">C</span> Confounding, comparability &amp; overlap <span class="nums">(5, 6, 7)</span></h2>
+      <p class="lede">The conditions under which efficient vs. inefficient areas are a fair comparison — the logic that justifies the five-node adjustment set.</p>
+      <ul class="asm-list">
+        <li class="asm-item"><span class="lbl">Positivity / common support.</span> Comparable areas exist at every exposure level.</li>
+        <li class="asm-item"><span class="lbl">Stable confounding / parallel trends.</span> Differencing cancels time-invariant unmeasured factors.</li>
+        <li class="asm-item"><span class="lbl">No unmeasured confounding</span> given {Climate, Economic Capital, Housing Characteristics, Tenure, Urbanicity}.</li>
+      </ul>
+    </div>
+
+    <div class="asm-theme" style="--accent:#30A890">
+      <h2><span class="key">D</span> Structural correctness of the DAG — units &amp; edges <span class="nums">(3, 11)</span></h2>
+      <p class="lede">That the graph's wiring and its unit boundaries are right.</p>
+      <ul class="asm-list">
+        <li class="asm-item"><span class="lbl">No spillover between areas.</span> No interference across LSOAs.</li>
+        <li class="asm-item"><span class="lbl">Edge directions correct and acyclic.</span> The contested reversible edges are correctly oriented.</li>
+      </ul>
+    </div>
+
+    <div class="asm-caveat">
+      <span class="ttl">Scope caveat</span>
+      Estimands are area-level (ecological) effects and need not equal individual-level effects.
+    </div>
+
+    <div class="asm-notes">
+      <h3>Two cross-cutting notes</h3>
+      <p class="asm-note">
+        <strong>1 and 3 are the two halves of SUTVA</strong> (consistency + no
+        interference). Consistency sits under the exposure (A) and no-interference
+        under structure (D) per the natural reading — but if a reviewer asks for
+        "the SUTVA assumption," point at both together.
+      </p>
+      <p class="asm-note">
+        <strong>6 bridges B and C.</strong> Its mechanism is temporal (factors must
+        be <em>time-invariant</em>), but its job is confounding control under the
+        change-score design, so it sits in C and cross-references B.
+      </p>
+    </div>
   </div>
 </div>
 
@@ -1095,6 +1250,20 @@ document.getElementById('zoom-fit').addEventListener('click', () => {
 document.getElementById('legend-header').addEventListener('click', () => {
   document.getElementById('legend').classList.toggle('collapsed');
 });
+
+// ── Tab switching (DAG / Assumptions) ─────────────────────────────────────────
+const tabBtns = document.querySelectorAll('#tabs .tab');
+const dagView = document.getElementById('svg-container');
+const toolbarEl = document.getElementById('toolbar');
+const asmView = document.getElementById('assumptions-view');
+tabBtns.forEach(btn => btn.addEventListener('click', () => {
+  const view = btn.dataset.view;
+  tabBtns.forEach(b => b.classList.toggle('active', b === btn));
+  const onDag = view === 'dag';
+  dagView.style.display = onDag ? 'block' : 'none';
+  toolbarEl.style.display = onDag ? 'flex' : 'none';
+  asmView.classList.toggle('on', !onDag);
+}));
 
 // ── Keyboard shortcuts ────────────────────────────────────────────────────────
 document.addEventListener('keydown', (e) => {
