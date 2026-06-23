@@ -4,6 +4,9 @@
 # Node
 node_modules/
 
+# Claude Code local config / tooling
+.claude/
+
 # Editor swap / backup files
 *.swp
 *.swo

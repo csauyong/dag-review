@@ -435,13 +435,13 @@ svg { width: 100%; height: 100%; display: block; }
       <span class="collapse-icon">▾</span>
     </div>
     <div class="legend-body">
-      <div class="li"><div class="sw" style="background:#909AAA"></div> Latent Construct</div>
-      <div class="li"><div class="sw" style="background:#C87830"></div> Structural Confounder</div>
-      <div class="li"><div class="sw" style="background:#D4A017"></div> Exposure</div>
-      <div class="li"><div class="sw" style="background:#5A9060"></div> Environmental/Proximal Mediator</div>
-      <div class="li"><div class="sw" style="background:#4878A8"></div> Social/Structural Mediator</div>
-      <div class="li"><div class="sw" style="background:#30A890"></div> Health Mediator</div>
-      <div class="li"><div class="sw" style="background:#C02828"></div> Outcome</div>
+      <div class="li"><div class="sw" style="background:#E08E2A"></div> Exposure (HEE)</div>
+      <div class="li"><div class="sw" style="background:#103A36"></div> Outcome (MH)</div>
+      <div class="li"><div class="sw" style="background:#2C6E8C"></div> Structural confounder</div>
+      <div class="li"><div class="sw" style="background:#4FA06A"></div> Environmental mediator</div>
+      <div class="li"><div class="sw" style="background:#6E7CA6"></div> Social / structural mediator</div>
+      <div class="li"><div class="sw" style="background:#3DB89A"></div> Health mediator</div>
+      <div class="li"><div class="sw" style="background:#9AA3AD"></div> Latent (unobserved)</div>
       <hr class="leg-hr">
       <div class="li"><div class="sw-adj"></div> Adjustment set</div>
       <div class="li"><svg width="28" height="10" style="flex-shrink:0"><line x1="0" y1="5" x2="16" y2="5" stroke="#ff7a8a" stroke-width="2"/><polygon points="16,2 24,5 16,8" fill="#ff7a8a"/></svg> Incoming</div>
@@ -556,7 +556,6 @@ const EDGE_RATIONALE = {
   'P-HEE':  "Household- and area-level uptake of government energy efficiency programmes directly determines whether retrofit measures are installed. The Energy Company Obligation (ECO, 2013–present) has accounted for 71–86% of government-scheme installations in each year since 2013, and approximately 75% of measures installed in 2024. The now-closed Green Deal (2013–2015) and the ongoing Warm Home Discount scheme further contribute to HEE distribution through means-tested and property-targeted eligibility criteria.",
   'H-HEE':  "Physical dwelling form — age, construction era, built form, and materials — is the strongest single determinant of baseline energy efficiency. Pre-1919 English properties average EPC 60, compared with 74 for post-1990 builds. Solid-walled properties, listed buildings, and detached houses with high surface-to-volume ratios face both higher baseline heat loss and greater technical constraints on retrofit feasibility.",
   'T-HEE':  "The landlord–tenant split incentive suppresses retrofit investment in the private rented sector: landlords bear the capital cost of improvements while tenants capture the resulting bill savings, creating a principal–agent problem that depresses efficiency investment. Empirical evidence documents landlord underinvestment across multiple categories of residential energy efficiency, including space-heating systems, water-heating, insulation, and weatherisation.",
-  'C-HEE':  "Regional climate shapes heat demand profiles and the marginal value of efficiency measures. Longitudinal heat demand monitoring of UK social housing shows substantial spatial variation attributable to regional weather, which affects the cost-effectiveness and targeting of retrofit measures. Climate change additionally introduces summertime overheating risk that interacts with insulation and airtightness, complicating the health calculus of efficiency measures.",
 
   // Into MH
   'ED-MH':  "Higher educational attainment is associated with improved coping, health literacy, and self-efficacy, consistently linked to better adult mental health outcomes. Sibling fixed-effects analyses of UK Biobank data find that higher attainment remains significantly associated with fewer depressive symptoms after controlling for unobserved family-level confounders and polygenic scores, though reduced by 40–70% relative to standard OLS estimates once sibling controls are applied.",
@@ -570,7 +569,8 @@ const EDGE_RATIONALE = {
   'IEQ-MH': "Indoor damp, mould, cold, and indoor air pollutants are associated with distress, perceived loss of control, and measurable increases in depression and anxiety. A UKHSA scoping review finds that 88% of included studies report significant associations between dampness/mould exposure and psychological outcomes including depression, anxiety, and perceived loss of control over the home environment.",
   'SC-MH':  "Area-level social capital — community trust, civic participation, and associational density — is inversely associated with common mental disorder prevalence through pathways of social support, collective efficacy, and sense of belonging. Systematic review of cognitive social capital and mental disorder finds consistent protective associations across multiple study designs and contexts.",
   'SI-MH':  "Social isolation and loneliness are robust, independent risk factors for depression, anxiety, and cognitive decline. An umbrella review of systematic reviews finds that loneliness more than doubles the odds of developing new-onset depression across longitudinal studies.",
-  'A-MH':   "Physical access to healthcare, employment, and social services affects mental health both directly — through increased stress and reduced ability to obtain treatment — and indirectly through participation in economic and social life.",
+  'A-MH':   "Physical access to healthcare, employment, and social services affects mental health both directly — through increased stress and reduced ability to obtain treatment — and indirectly through participation in economic and social life. As redefined, Accessibility also encompasses the local availability of mental-health services, a proximal determinant of treatment access.",
+  'A-PH':   "Physical access to healthcare determines the timeliness and continuity of treatment for acute and chronic physical illness. A scoping review of distance and travel time to services finds that longer distances and travel times in poorly connected areas are associated with delayed presentation, lower service utilisation, and worse health outcomes, with effects concentrated among elderly and chronically ill populations; UK health-service inequalities research documents the same access burden. The mechanism is distinct from the mental-health pathway: it operates through deferred diagnosis, missed appointments, and discontinuous management of physical conditions.",
   'DC-MH':  "Digital capital has a net protective effect on mental health at the population level, primarily through access to mental health resources, telehealth, and maintenance of social connection. Digital exclusion disproportionately affects people with severe mental illness and older adults in deprived communities, compounding existing mental health inequalities.",
   'SA-MH':  "Substance use disorders are highly comorbid with mental health disorders. Drug use disorder is associated with 3.8-fold increased odds of major depression, and alcohol use disorder with approximately 2.4-fold increased odds.",
   'PH-MH':  "Chronic physical illness increases depression risk through pathways of disability, pain, inflammation, and reduced quality of life. A mediation analysis using UK longitudinal data demonstrates that physical health substantially mediates the income–mental-health relationship.",
@@ -584,7 +584,7 @@ const EDGE_RATIONALE = {
   'EC-H':   "Household income and wealth determine the quality of accessible housing stock. UK data shows households in the lowest income quintile are substantially more likely to live in homes that are hazardous, difficult to heat, or in poor repair; the pool of properties affordable to housing benefit recipients is of systematically lower quality than the UK housing stock average.",
   'EC-T':   "Wealth and income determine access to owner-occupation in the UK housing market. Social renters have an after-housing-cost poverty rate of 46%, private renters 34%, and mortgagors 11%, with outright owners at 15%.",
   'EC-O':   "Lower household income constrains consumption of housing space relative to household size. More than two million children from 746,000 families in England live in overcrowded conditions, overwhelmingly concentrated in low-income households.",
-  'EC-P':   "Means-tested UK energy assistance programmes — most notably Warm Home Discount Core Group 2 — condition eligibility on receipt of qualifying income-related benefits, creating a direct link between area-level economic capital and the reach of energy policy instruments.",
+  'EC-P':   "Means-tested UK energy assistance programmes — most notably Warm Home Discount Core Group 2 — condition eligibility on receipt of qualifying income-related benefits, creating a direct link between area-level economic capital and the reach of energy policy instruments. A reviewer proposed reversing this edge (Policy → Economic Capital); the EC → Policy orientation is retained because eligibility is conditioned on pre-existing income, but the orientation is flagged for a sensitivity test in which the edge direction is reversed to confirm the target estimand is robust to this choice.",
   'EC-N':   "Household economic resources determine residential neighbourhood through housing market sorting. Higher economic resources facilitate movement to more advantaged neighbourhoods, while residents of constrained means experience limited locational choice.",
   'EC-SC':  "Economic resources facilitate civic participation through time, financial capacity, and psychosocial stability. A UK analysis finds a participatory gap between lower- and higher-income groups, though deprived communities can maintain social capital through kinship networks and informal mutual aid.",
   'EC-DC':  "Income determines broadband access, device ownership, and digital literacy. Approximately one in five adults in UK households earning under £25,000 never use the internet, with a strong income gradient in internet use documented by Ofcom.",
@@ -626,8 +626,8 @@ const EDGE_RATIONALE = {
   'H-PH':   "Poor housing is linked to respiratory disease, cardiovascular stress, and injuries through multiple pathways including structural hazards, inadequate thermal performance, and environmental exposures at the dwelling level. Systematic review identified 19 housing-related risk factors for respiratory disease.",
   'H-IEQ':  "Physical dwelling form — age, construction era, envelope materials, ventilation design, and maintenance condition — directly determines indoor temperature regulation, humidity, air quality, and mould risk.",
   'H-SI':   "High-rise and poorly designed housing reduces opportunities for incidental social interaction and contributes to social withdrawal. Systematic review finds that living in high-rise housing is associated with worse social and mental health outcomes compared with lower-rise residential typologies.",
-  'C-H':    "Extreme weather — flooding, heat, and storms — degrades the structural integrity and condition of dwellings. In England, approximately 6.3 million properties are currently at flood risk, with projected increases by 2050 as climate change intensifies.",
-  'C-IEQ':  "Extreme outdoor temperatures propagate to indoor environments with substantial time lags. Following the record 2022 UK heatwave (temperatures exceeding 40°C for the first time), household-reported indoor overheating rose from 20% (2011) to 82% (2022). Flooding additionally introduces damp and mould with parallel IEQ consequences for indoor air quality.",
+  'C-H':    "Extreme weather — flooding, heat, and storms — degrades the structural integrity and condition of dwellings. In England, approximately 6.3 million properties are currently at flood risk, with projected increases by 2050 as climate change intensifies. Coastal and geographic exposure operates through the same channel: dwellings in coastal LSOAs face elevated coastal-flood and storm-surge risk, wind-driven rain, and accelerated salt- and wind-weathering of the building fabric, captured here within the exogenous Climate construct rather than as a separate node.",
+  'C-IEQ':  "Extreme outdoor temperatures propagate to indoor environments with substantial time lags. Following the record 2022 UK heatwave (temperatures exceeding 40°C for the first time), household-reported indoor overheating rose from 20% (2011) to 82% (2022). Climate also drives indoor damp through moisture ingress: wind-driven (driving) rain penetrates the building envelope — disproportionately in exposed coastal and high-rainfall western areas and in solid-walled stock — raising wall moisture content, condensation risk, and mould. Flooding additionally introduces damp and mould with parallel IEQ consequences for indoor air quality.",
   'AP-PH':  "Long-term exposure to ambient air pollution causes respiratory and cardiovascular disease and premature mortality. A multi-country analysis of 854 European cities estimates that each 10 µg/m³ increase in PM₂.₅ is associated with approximately 8% higher all-cause mortality.",
   'AP-IEQ': "Outdoor particulate pollution infiltrates indoor environments through the building envelope. A systematic review of 77 studies covering over 4,000 homes reports a mean infiltration factor for PM₂.₅ of 0.55 — on average more than half of ambient PM₂.₅ penetrates and persists indoors.",
   'GS-PH':  "Access to green space reduces cardiovascular-disease risk and all-cause mortality through physical activity, stress reduction, and heat mitigation. Meta-analysis of over 100 million individuals reports a 2–3% reduction in cardiovascular-disease mortality per 0.1-unit increase in NDVI (Normalised Difference Vegetation Index).",
@@ -641,9 +641,10 @@ const EDGE_RATIONALE = {
 
   'HEE-FP':  "The energy efficiency of the dwelling stock is a definitional determinant of fuel poverty: the Low Income Low Energy Efficiency (LILEE) metric used in England embeds the efficiency rating directly in its threshold, so areas with less efficient stock mechanically exhibit higher modelled prevalence. Beyond the definitional link, the mechanism is that a more efficient dwelling requires less delivered energy to reach an adequate internal temperature, lowering the expenditure needed for thermal comfort; evidence indicates that home energy-efficiency schemes significantly reduce fuel-poverty prevalence (Sovacool 2015). The edge is oriented HEE → FP because dwelling efficiency is logically prior to the affordability outcome it helps determine.",
   'EC-FP':   "Household income is the second definitional input to fuel poverty: the low-income component is assessed against an income threshold, so area-level economic capital is constitutive of measured fuel poverty independent of dwelling efficiency. The mechanism is direct — for a given energy cost, lower income raises the share of expenditure absorbed by energy and the likelihood of falling below the affordability threshold. This edge is required for FP to be correctly specified; omitting it would misrepresent fuel poverty as a function of efficiency alone. EC already enters the graph as an upstream confounder of HEE (EC → HEE); the EC → FP edge is conceptually distinct, capturing income's role in affordability after efficiency is determined, and the two should not be conflated.",
-  'C-FP':    "Climatic heating demand is a recognised driver of fuel poverty: colder areas require more delivered energy to maintain an adequate internal temperature, raising the energy cost faced for a given dwelling efficiency and income. This edge parallels the existing C → HEE and C → IEQ edges, under which climate already operates through heating demand. The spatial patterning of fuel poverty in England is documented by Robinson et al. (2023). Energy price is excluded as a separate determinant because, in the England-and-Wales LSOA cross-section, tariffs are effectively national and do not vary across units, contributing nothing to identification.",
+  'C-FP':    "Climatic heating demand is a recognised driver of fuel poverty: colder areas require more delivered energy to maintain an adequate internal temperature, raising the energy cost faced for a given dwelling efficiency and income. This edge parallels the existing C → IEQ edge, under which climate already operates through heating demand. The spatial patterning of fuel poverty in England is documented by Robinson et al. (2023). Energy price is excluded as a separate determinant because, in the England-and-Wales LSOA cross-section, tariffs are effectively national and do not vary across units, contributing nothing to identification.",
   'FP-MH':   "Fuel poverty is consistently associated with poorer mental health: in a global scoping review, Khavandi et al. (2024) found a detrimental association in 46 of 47 included studies and organised the pathways into economic, social, behavioural, and environmental mechanisms. The association is observational and confounded by income and housing quality, so it does not by itself establish causation; here those common causes (EC, H) are conditioned, and the residual edge carries the affordability mechanism net of them. The proposed mechanism is psychosocial financial strain — anxiety over unaffordable bills, the heat-or-eat trade-off, and the chronic stress of an under-heated home. This edge constitutes the economic/affordability arm of HEE's effect on mental health, running parallel to the physical/thermal arm carried by HEE → IEQ → MH.",
   'FP-PH':   "Fuel poverty is linked to adverse physical health, particularly cold-related cardiovascular and respiratory morbidity and excess winter mortality (Marmot Review Team 2011; Maidment et al. 2014). As with FP → MH, the raw association is confounded by income and dwelling characteristics, which the adjustment set addresses; the edge represents the effect of unaffordable energy net of those common causes. The mechanism operates through sustained exposure to inadequate indoor temperatures and the diversion of constrained budgets away from food and health-protective expenditure, with energy-poor households forgoing medicine and healthcare to meet bills. Evidence is not uniform — Poortinga et al. (2018) found no clear reduction in emergency hospital admissions following efficiency investment — so the causal claim is made cautiously. Because PH → MH already exists, this edge also opens an indirect FP → PH → MH sub-path.",
+  'FP-IEQ':  "Fuel poverty degrades indoor environmental quality through a behavioural rationing mechanism distinct from the physical-fabric pathway carried by HEE → IEQ. Households unable to afford adequate warmth ration heating — under-heating rooms, heating intermittently, or restricting heating to a single room — which lowers internal surface temperatures below the dew point and, combined with everyday moisture generation, produces condensation, persistent damp, and mould growth. Sharpe et al. (2015) find that fuel poverty increases the risk of mould contamination in social housing independently of occupant risk perception and ventilation behaviour; Liddell and Guiney (2015) document the cold-housing pathway more broadly. The edge runs FP → IEQ because affordability-driven heating behaviour is logically prior to the indoor conditions it produces; it is conditionally distinct from H → IEQ (dwelling form) and O → IEQ (occupancy load), and from the C → IEQ climate-demand channel.",
 
   'HEE-IEQ': "Energy efficiency improvements alter indoor environments in complex ways. Properly implemented retrofits that incorporate adequate ventilation yield net IEQ gains; however, retrofits undertaken without ventilation provision can trap indoor pollutants and worsen air quality. The direction and magnitude of the IEQ effect is therefore contingent on retrofit specification.",
   'HEE-NO':  "Double- and triple-glazing, solid wall insulation, and improvements in airtightness reduce the transmission of external noise through the building envelope. Standard double glazing achieves a reduction of approximately 30–35 dB relative to single glazing, with further gains from triple glazing and improved frame sealing.",
@@ -661,13 +662,13 @@ const EDGE_RATIONALE = {
 // ── Domain / node data ────────────────────────────────────────────────────────
 
 const DOMAINS = {
-  'Latent Construct':                  { color: '#909AAA', nodes: ['U_AH'] },
-  'Structural Confounder':             { color: '#C87830', nodes: ['D', 'ED', 'EC', 'H', 'T', 'U', 'C'] },
-  'Exposure':                          { color: '#D4A017', nodes: ['HEE'] },
-  'Environmental/Proximal Mediator':   { color: '#5A9060', nodes: ['IEQ', 'AP', 'GS', 'NO', 'O'] },
-  'Social/Structural Mediator':        { color: '#4878A8', nodes: ['N', 'NS', 'A', 'SC', 'DC', 'P', 'SI', 'FP'] },
-  'Health Mediator':                   { color: '#30A890', nodes: ['PH', 'SA'] },
-  'Outcome':                           { color: '#C02828', nodes: ['MH'] },
+  'Exposure (HEE)':                    { color: '#E08E2A', nodes: ['HEE'] },
+  'Outcome (MH)':                      { color: '#103A36', nodes: ['MH'] },
+  'Structural confounder':             { color: '#2C6E8C', nodes: ['D', 'ED', 'EC', 'H', 'T', 'U', 'C'] },
+  'Environmental mediator':            { color: '#4FA06A', nodes: ['IEQ', 'AP', 'GS', 'NO', 'O'] },
+  'Social / structural mediator':      { color: '#6E7CA6', nodes: ['N', 'NS', 'A', 'SC', 'DC', 'P', 'SI', 'FP'] },
+  'Health mediator':                   { color: '#3DB89A', nodes: ['PH', 'SA'] },
+  'Latent (unobserved)':               { color: '#9AA3AD', nodes: ['U_AH'] },
 };
 
 const FULL_NAMES = {
@@ -698,8 +699,8 @@ const NODE_INFO = {
   'T':    { desc: 'Tenure: legal occupancy status — owner-occupied, private rental, or social rental.', role: 'Structural confounder' },
   'D':    { desc: 'Demographics: age, race, gender, and family structure.', role: 'Baseline confounder' },
   'U':    { desc: 'Urbanicity: degree of urban versus rural setting.', role: 'Macro-confounder' },
-  'C':    { desc: 'Climate: exogenous climate conditions — regional temperatures, flood risk, and extreme weather.', role: 'Exogenous variable' },
-  'IEQ':  { desc: 'Indoor Environmental Quality: thermal comfort, damp, mould, and indoor pollutants.', role: 'Proximal mediator' },
+  'C':    { desc: 'Climate: exogenous climate and physical-geographic conditions — regional temperatures, flood risk, extreme weather, and coastal/geographic exposure (coastal-flood and storm-surge risk, wind-driven rain, salt and wind weathering).', role: 'Exogenous variable' },
+  'IEQ':  { desc: 'Indoor Environmental Quality: thermal comfort, damp, mould, and indoor pollutants. Kept aggregated in the main DAG; a decomposed sub-graph splitting the thermal dimension into cold and overheating is developed separately.', role: 'Proximal mediator' },
   'FP':   { desc: 'Fuel Poverty: household inability to afford adequate warmth, operationalised via the Low Income Low Energy Efficiency (LILEE) indicator; jointly determined by dwelling efficiency, energy prices, and household income.', role: 'Proximal mediator' },
   'AP':   { desc: 'Air Pollution: ambient outdoor air quality (PM₂.₅, NO₂).', role: 'Environmental mediator' },
   'GS':   { desc: 'Green Space: access to and quality of parks, trees, and blue spaces.', role: 'Environmental mediator' },
@@ -707,7 +708,7 @@ const NODE_INFO = {
   'O':    { desc: 'Overcrowding: density of residents relative to number of rooms.', role: 'Physical mediator' },
   'N':    { desc: 'Neighbourhood: latent area-level construct representing the geographic unit at which household-level factors aggregate into shared environmental exposures; the node through which household-level and structural causes are transmitted to area-level environmental and social mediators.', role: 'Scale-bridging construct' },
   'NS':   { desc: 'Neighbourhood Stress: chronic neighbourhood-level stressors, including crime, perceived unsafety, physical disorder and dereliction, and anti-social behaviour.', role: 'Social mediator' },
-  'A':    { desc: 'Accessibility: physical ease of access to healthcare, employment, and services.', role: 'Social mediator' },
+  'A':    { desc: 'Accessibility: physical ease of access to healthcare (including the local availability of mental-health services), employment, and services.', role: 'Social mediator' },
   'SC':   { desc: 'Social Capital: area-level civic participation, community trust, and associational density.', role: 'Social mediator' },
   'DC':   { desc: 'Digital Capital: broadband availability, speed, and digital literacy or exclusion at the area level.', role: 'Structural mediator' },
   'P':    { desc: 'Policy Scheme Access: area-level uptake of, and eligibility for, energy assistance and weatherisation programmes (e.g. ECO, Warm Home Discount).', role: 'Policy mediator' },
@@ -759,10 +760,10 @@ const rawEdges = [
   ['H','HEE'],['H','PH'],['H','IEQ'],['H','SI'],
   ['T','MH'],['T','HEE'],
   ['O','IEQ'],['O','MH'],
-  ['C','H'],['C','HEE'],['C','MH'],['C','IEQ'],
+  ['C','H'],['C','MH'],['C','IEQ'],
   ['AP','MH'],['AP','PH'],['AP','IEQ'],
   ['GS','MH'],['GS','PH'],['GS','IEQ'],['GS','AP'],
-  ['SI','MH'],['A','MH'],
+  ['SI','MH'],['A','MH'],['A','PH'],
   ['HEE','IEQ'],['HEE','NO'],
   ['IEQ','MH'],['IEQ','PH'],
   ['NO','MH'],['NO','PH'],['NO','IEQ'],
@@ -771,7 +772,7 @@ const rawEdges = [
   ['SA','MH'],['SA','PH'],
   ['PH','MH'],
   ['HEE','FP'],['EC','FP'],['C','FP'],
-  ['FP','MH'],['FP','PH'],
+  ['FP','MH'],['FP','PH'],['FP','IEQ'],
 ];
 
 // ── Node / link objects ───────────────────────────────────────────────────────
@@ -1110,7 +1111,7 @@ const nodeSel = root.append('g').selectAll('g').data(nodes).join('g')
 nodeSel.append('circle')
   .attr('r', R)
   .attr('fill',         d => d.color)
-  .attr('stroke',       d => d.inAdj ? '#ffffff' : '#333')
+  .attr('stroke',       d => d.inAdj ? '#ffffff' : 'rgba(255,255,255,0.35)')
   .attr('stroke-width', d => d.inAdj ? 4 : 1.2);
 
 nodeSel.each(function(d) {

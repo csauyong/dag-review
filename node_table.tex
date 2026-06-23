@@ -1,0 +1,54 @@
+\begin{longtable}{@{}p{3.2cm}p{6.8cm}p{3.2cm}@{}}
+\caption{Node schema for the causal DAG: 25 constructs with hypothesised causal roles. Roles represent theoretical priors, specified prior to formal identification analysis and subject to revision through expert review.}
+\label{tab:variable_groups} \\
+\toprule
+\textbf{Node} & \textbf{Description} & \textbf{Hypothesised Role} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{Table~\ref*{tab:variable_groups} continued.}} \\[4pt]
+\toprule
+\textbf{Node} & \textbf{Description} & \textbf{Hypothesised Role} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r@{}}{\textit{Continued on next page.}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{3}{@{}l}{\textit{Exposure and Outcome}} \\
+\textbf{HEE} & Home Energy Efficiency: insulation, glazing, heating system quality, and airtightness & Exposure \\
+\textbf{MH} & Mental Health: rates of depression, anxiety, chronic stress, and related outcomes & Outcome \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Structural Confounders}} \\
+Economic\_Capital & Financial resources including income levels and employment status & Primary confounder \\
+Education & Educational attainment and health literacy & Primary confounder \\
+Housing\_Characteristics & Physical dwelling form: building age, construction era and dwelling type (detached, semi-detached, terraced, flat) & Physical confounder \\
+Tenure & Legal occupancy status: owner-occupied, private rental, or social rental & Structural confounder \\
+Demographics & Age, race, gender, and family structure & Baseline confounder \\
+Urbanicity & Degree of urban versus rural setting & Macro-confounder \\
+Climate & Exogenous climate and physical-geographic conditions: regional temperatures, flood risk, extreme weather, and coastal/geographic exposure (coastal-flood and storm-surge risk, wind-driven rain, and salt and wind weathering of the dwelling fabric) & Exogenous variable \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Proximal and Environmental Mediators}} \\
+IEQ & Indoor Environmental Quality: thermal comfort, damp, mould, and indoor pollutants. Retained as an aggregate construct in the main DAG; a decomposed sub-graph distinguishing the thermal dimension into cold and overheating is developed separately & Proximal mediator \\
+Fuel\_Poverty & Household inability to afford adequate warmth, operationalised via the Low Income Low Energy Efficiency (LILEE) indicator; jointly determined by dwelling efficiency, energy prices, and household income & Proximal mediator \\
+Air\_Pollution & Ambient outdoor air quality (PM$_{2.5}$, NO$_2$) & Environmental mediator \\
+Green\_Space & Access to and quality of parks, trees, and blue spaces & Environmental mediator \\
+Noise & Area-level environmental noise (road, rail, aircraft) measured via L$_\text{den}$/L$_\text{night}$ & Environmental mediator \\
+Overcrowding & Density of residents relative to number of rooms & Physical mediator \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Social and Structural Mediators}} \\
+Neighbourhood & Latent area-level construct representing the geographic unit at which household-level factors aggregate into shared environmental exposures; the node through which household-level and structural causes are transmitted to area-level environmental and social mediators & Scale-bridging construct \\
+Neighbourhood\_Stress & Chronic neighbourhood-level stressors, including crime, perceived unsafety, physical disorder and dereliction, and anti-social behaviour & Social mediator \\
+Accessibility & Physical ease of access to healthcare (including the local availability of mental-health services), employment, and services & Social mediator \\
+Social\_Capital & Area-level civic participation, community trust, and associational density & Social mediator \\
+Digital\_Capital & Broadband availability, speed, and digital literacy or exclusion at the area level & Structural mediator \\
+Policy\_Scheme\_Access & Area-level uptake of, and eligibility for, energy assistance and weatherisation programmes (e.g.\ ECO, Warm Home Discount) & Policy mediator \\
+Isolation & Social isolation, loneliness, and lack of community belonging & Psychological mediator \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Health Mediators}} \\
+PH & Physical Health: respiratory health, cardiovascular disease, and mortality & Health mediator \\
+Substance\_Abuse & Area-level prevalence of alcohol and drug misuse & Health mediator \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Latent Constructs}} \\
+U\_AreaHistory & Unobserved legacy of historical planning decisions, disinvestment, and structural disadvantage & Unmeasured root cause \\
+\end{longtable}
