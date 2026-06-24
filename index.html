@@ -16,11 +16,11 @@ body {
   padding: 11px 22px; flex-shrink: 0;
   background: linear-gradient(180deg, #141830 0%, #0e1126 100%);
   border-bottom: 1px solid #1d2347;
-  display: flex; align-items: baseline; gap: 14px;
+  display: flex; align-items: center; gap: 14px;
 }
-#header h1 { font-size: 15px; font-weight: 600; color: #f4f6ff; letter-spacing: 0.1px; }
+#header h1 { font-size: 14px; font-weight: 600; color: #f4f6ff; letter-spacing: 0.1px; white-space: nowrap; flex-shrink: 0; }
 #header h1 .arrow { color: #8ea3ff; font-weight: 400; margin: 0 5px; }
-#header .hint { font-size: 10.5px; color: #6b7296; }
+.hint { font-size: 10.5px; color: #6b7296; white-space: nowrap; margin-left: auto; align-self: center; }
 
 #toolbar {
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
@@ -29,6 +29,7 @@ body {
 }
 
 .sep { width: 1px; height: 18px; background: #252a52; margin: 0 4px; }
+.row-break { flex-basis: 100%; height: 0; margin: 2px 0 0; }
 .label { font-size: 10px; color: #6b7296; text-transform: uppercase; letter-spacing: 0.8px; margin-right: 2px; }
 
 .btn {
@@ -269,14 +270,14 @@ svg { width: 100%; height: 100%; display: block; }
 
 /* ── Tab bar ──────────────────────────────────────────────────────────────── */
 #tabs {
-  display: flex; gap: 2px; margin-left: 6px; align-self: stretch; align-items: flex-end;
+  display: flex; gap: 2px; margin-left: 6px; align-items: center;
 }
 .tab {
   padding: 6px 16px; border: 1px solid transparent; border-bottom: none;
   background: transparent; color: #8a92b8; cursor: pointer;
   font-size: 12px; font-family: inherit; font-weight: 500;
   border-radius: 6px 6px 0 0; transition: background 0.15s, color 0.15s;
-  position: relative; top: 1px;
+  position: relative; white-space: nowrap; flex-shrink: 0;
 }
 .tab:hover { color: #d8dcf0; background: #171b38; }
 .tab.active {
@@ -450,7 +451,6 @@ table.edg-table td em { color: #8ea3ff; font-style: italic; }
 
 <div id="header">
   <h1>Urban Health Causal DAG<span class="arrow">·</span>HEE<span class="arrow">→</span>Mental Health</h1>
-  <span class="hint">Click node or edge · Drag to reposition · Scroll to zoom · <kbd style="background:#262c54;border:1px solid #3a4478;border-radius:3px;padding:1px 5px;font-family:inherit;font-size:10px;color:#c4cce5;">/</kbd> to search · <kbd style="background:#262c54;border:1px solid #3a4478;border-radius:3px;padding:1px 5px;font-family:inherit;font-size:10px;color:#c4cce5;">Esc</kbd> to reset</span>
   <div id="tabs">
     <button class="tab active" data-view="dag">DAG</button>
     <button class="tab" data-view="definitions">Definitions</button>
@@ -471,7 +471,8 @@ table.edg-table td em { color: #8ea3ff; font-style: italic; }
   <button class="btn" id="btn-reset">Reset layout</button>
   <button class="btn" id="btn-adj">Adjustment set</button>
   <button class="btn" id="btn-paths">HEE → MH paths</button>
-  <div class="sep"></div>
+  <span class="hint">Click node or edge · Drag to reposition · Scroll to zoom · <kbd style="background:#262c54;border:1px solid #3a4478;border-radius:3px;padding:1px 5px;font-family:inherit;font-size:10px;color:#c4cce5;">/</kbd> to search · <kbd style="background:#262c54;border:1px solid #3a4478;border-radius:3px;padding:1px 5px;font-family:inherit;font-size:10px;color:#c4cce5;">Esc</kbd> to reset</span>
+  <div class="row-break"></div>
   <span class="label">Domains</span>
 </div>
 
