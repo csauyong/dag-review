@@ -6,57 +6,7 @@ Visit the live DAG: **https://csauyong.github.io/dag-review/**
 
 Expert feedback is collected through GitHub Issues. This document explains how to contribute.
 
----
-
-## Changelog
-
-### v1.1.1 — 2026-06-24
-
-Changes since v1.1.0.
-
-**DAG structure**
-
-- **Reinstated** edge **Climate → HEE** (reversing its removal in v1.1.0). Regional climate shapes domestic heat-demand profiles and thus the marginal value of efficiency measures: because the absolute energy and cost savings of a given fabric measure scale with underlying heat demand, regional variation in demand alters the cost-effectiveness and geographic targeting of retrofit, and hence the efficiency state ultimately achieved across the stock (Aragón et al. 2022). The edge moves out of the excluded-edges table and into the *Edges into HEE* table.
-
-**Adjustment set**
-
-- With `Climate → HEE` restored, Climate is again a common cause of HEE and MH, so the minimal sufficient adjustment set for the total effect HEE → MH returns to the **five-node set {Climate, Economic Capital, Housing Characteristics, Tenure, Urbanicity}**. (While the edge was excluded in v1.1.0, Climate reached HEE only via `Climate → Housing → HEE`, already blocked by conditioning on Housing, so the set had collapsed to four.) The DAG's adjustment-set highlighting reflects the five-node set.
-
-The graph now has **25 nodes and 89 directed edges**.
-
-### v1.1.0 — 2026-06-23
-
-Changes since v1.0.0.
-
-**New views**
-
-- Added an **Assumptions** tab grouping the identifying assumptions into four themes.
-- Added a **Definitions** tab with a per-node construct definition and hypothesised causal role.
-
-**DAG structure (expert-review decision log)**
-
-- **Added** edge **Fuel Poverty → IEQ** — affordability-driven heating rationing lowers internal surface temperatures, producing condensation, damp, and mould; a behavioural pathway distinct from the physical-fabric route `HEE → IEQ`.
-- **Added** edge **Accessibility → Physical Health** — distance and travel time to services delay diagnosis and disrupt management of physical illness; also opens an indirect `Accessibility → PH → MH` sub-path.
-- **Removed** edge **Climate → HEE** — it conflated regional heating *demand* with the dwelling's installed *efficiency*; the channel is retained through `Climate → IEQ` and `Climate → Fuel Poverty`. The edge is now documented in the excluded-edges table with its rationale.
-- **Air Pollution → IEQ** was already present and is confirmed unchanged.
-
-**Definition & rationale updates**
-
-- **Accessibility** redefined to include the local availability of mental-health services (no new node).
-- **Climate** broadened to cover coastal/geographic physical exposure — coastal-flood and storm-surge risk, wind-driven rain, and salt/wind weathering of the building fabric — folded into the existing node rather than added as a separate node.
-- **Climate → IEQ** rationale extended with the wind-driven (driving) rain moisture-ingress mechanism.
-- **Economic Capital → Policy Scheme Access** flagged for an orientation-sensitivity test; the direction is retained pending that check.
-- **IEQ** kept aggregated in the main DAG, with a note that a decomposed cold/overheating sub-graph is maintained separately.
-
-**Appearance**
-
-- Node palette, legend, and domain filters recoloured and relabelled to match the project slide deck (Exposure, Outcome, Structural confounder, Environmental mediator, Social / structural mediator, Health mediator, Latent). The Outcome node now carries a hairline border so it stays legible on the dark canvas.
-
-The graph now has **25 nodes and 88 directed edges**. Edge-by-edge evidence is maintained in `edge_table.tex`; the node schema in `node_table.tex`.
-
-### v1.0.0 — baseline (commit `59449e5`)
-
-Initial reviewed baseline: the interactive DAG for expert review, GitHub-Issues feedback integration, the adjustment-set / path-highlighting tools, and the Fuel Poverty mediator node with its edges and rationale.
+Version history and per-release notes are published on the [**Releases**](https://github.com/csauyong/dag-review/releases) page. Edge-by-edge evidence is maintained in `edge_table.tex`; the node schema in `node_table.tex`.
 
 ---
 
