@@ -391,6 +391,59 @@ svg { width: 100%; height: 100%; display: block; }
 #definitions-view::-webkit-scrollbar-track { background: transparent; }
 #definitions-view::-webkit-scrollbar-thumb { background: #2a3060; border-radius: 4px; }
 #definitions-view::-webkit-scrollbar-thumb:hover { background: #3a4478; }
+
+#edges-view {
+  flex: 1; overflow-y: auto; display: none;
+  background: radial-gradient(ellipse at top, #131733 0%, #0b0e1f 70%);
+  padding: 32px 0 64px;
+}
+#edges-view.on { display: block; }
+.edg-wrap { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+.edg-intro { color: #aab2d6; font-size: 13px; line-height: 1.7; margin-bottom: 26px; }
+.edg-intro .em { color: #f4f6ff; font-weight: 500; }
+.edg-section { margin-bottom: 30px; }
+.edg-section > h2 {
+  font-size: 15px; font-weight: 600; color: #f4f6ff; margin-bottom: 4px;
+  display: flex; align-items: baseline; gap: 9px;
+}
+.edg-section > h2 .dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+.edg-section .lede { color: #aab2d6; font-size: 12px; line-height: 1.6; margin: 4px 0 14px; }
+.edg-section .lede .em { color: #f4f6ff; font-weight: 500; }
+.edg-claim {
+  background: #141833; border: 1px solid #2a3060; border-left: 3px solid #4FA06A;
+  border-radius: 7px; padding: 12px 15px; font-size: 12px; line-height: 1.65;
+  color: #c4cce5; margin-bottom: 18px;
+}
+.edg-claim strong { color: #f4f6ff; }
+.edg-claim em { color: #8ea3ff; font-style: italic; }
+.edg-list { display: flex; flex-direction: column; gap: 10px; }
+.edg-card { background: #161a35; border: 1px solid #232954; border-radius: 7px; padding: 12px 15px; }
+.edg-card .edg-name { font-size: 13px; font-weight: 600; color: #f4f6ff; margin-bottom: 5px; }
+.edg-card .edg-name .arr { color: #8ea3ff; font-weight: 400; margin: 0 4px; }
+.edg-card .edg-desc { font-size: 12px; line-height: 1.6; color: #d8dcf0; }
+table.edg-table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+table.edg-table th, table.edg-table td {
+  text-align: left; vertical-align: top; padding: 9px 11px;
+  border-bottom: 1px solid #232954; line-height: 1.55;
+}
+table.edg-table thead th {
+  color: #aab2d6; font-weight: 600; font-size: 10.5px; text-transform: uppercase;
+  letter-spacing: 0.6px; border-bottom: 1px solid #2a3060; background: #141833;
+}
+table.edg-table td { color: #d8dcf0; }
+table.edg-table td .edg-edge { color: #f4f6ff; font-weight: 600; }
+table.edg-table td .edg-orient { color: #c4cce5; font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: 11px; }
+table.edg-table td em { color: #8ea3ff; font-style: italic; }
+.edg-pill {
+  display: inline-block; font-size: 10px; font-weight: 600; padding: 1px 7px;
+  border-radius: 4px; letter-spacing: 0.3px;
+}
+.edg-pill.conf { background: #1c2c3a; color: #6fb6d6; border: 1px solid #2C6E8C; }
+.edg-pill.out  { background: #16301f; color: #6fc88a; border: 1px solid #3DB89A; }
+#edges-view::-webkit-scrollbar { width: 9px; }
+#edges-view::-webkit-scrollbar-track { background: transparent; }
+#edges-view::-webkit-scrollbar-thumb { background: #2a3060; border-radius: 4px; }
+#edges-view::-webkit-scrollbar-thumb:hover { background: #3a4478; }
 </style>
 </head>
 <body>
@@ -402,6 +455,7 @@ svg { width: 100%; height: 100%; display: block; }
     <button class="tab active" data-view="dag">DAG</button>
     <button class="tab" data-view="definitions">Definitions</button>
     <button class="tab" data-view="assumptions">Assumptions</button>
+    <button class="tab" data-view="edges">Edge decisions</button>
   </div>
   <span id="fb-status" title="Expert-feedback connection"><span class="dot"></span><span class="txt">feedback: loading…</span></span>
 </div>
@@ -493,8 +547,8 @@ svg { width: 100%; height: 100%; display: block; }
       <p class="lede">The conditions under which efficient vs. inefficient areas are a fair comparison — the logic that justifies the five-node adjustment set.</p>
       <ul class="asm-list">
         <li class="asm-item"><span class="lbl">Positivity / common support.</span> Comparable areas exist at every exposure level.</li>
-        <li class="asm-item"><span class="lbl">Stable confounding / parallel trends.</span> Differencing cancels time-invariant unmeasured factors.</li>
-        <li class="asm-item"><span class="lbl">No unmeasured confounding</span> given {Climate, Economic Capital, Housing Characteristics, Tenure, Urbanicity}.</li>
+        <li class="asm-item"><span class="lbl">Stable confounding / parallel trends.</span> Differencing cancels time-invariant unmeasured factors. Economic Capital and Education are <em>baseline / pre-treatment</em> confounders, ascertained before the HEE exposure contrast — the measurement protocol that licenses the acyclic encoding Education&nbsp;→&nbsp;Economic&nbsp;Capital&nbsp;→&nbsp;HEE and rules out the latent (non-identifiable) variant in which that temporal separation fails.</li>
+        <li class="asm-item"><span class="lbl">No unmeasured confounding</span> given the adjustment set 𝒜&nbsp;= {Climate, Economic Capital, Housing Characteristics, Tenure, Urbanicity}. A bidirectionality sensitivity analysis (3<sup>8</sup>&nbsp;=&nbsp;6561 joint orientation / latent-common-cause configurations) pins the <em>sole</em> failure mode: an unmeasured common cause of HEE and Economic Capital, combined with a second unmeasured Economic&nbsp;Capital–outcome common cause. A latent HEE&nbsp;↔&nbsp;Economic&nbsp;Capital link is present in <strong>all 486 of 486</strong> non-identifiable configurations; no outcome-side reorientation breaks identification.</li>
       </ul>
     </div>
 
@@ -525,6 +579,21 @@ svg { width: 100%; height: 100%; display: block; }
         be <em>time-invariant</em>), but its job is confounding control under the
         change-score design, so it sits in C and cross-references B.
       </p>
+      <p class="asm-note">
+        <strong>The bidirectional edges are resolved by design, not by the graph.</strong>
+        The HEE&nbsp;↔&nbsp;Economic&nbsp;Capital and Economic&nbsp;Capital&nbsp;↔&nbsp;Education
+        relationships are genuine feedback loops in calendar time, and a DAG cannot
+        encode true simultaneity. Their bidirected (latent common-cause) variants are
+        precisely the configurations in which identification fails — the two minimal
+        breakers being HEE&nbsp;↔&nbsp;EC together with EC&nbsp;↔&nbsp;MH, and
+        HEE&nbsp;↔&nbsp;EC together with EC&nbsp;↔&nbsp;PH — and those correspond to the
+        case where the baseline / pre-treatment <em>temporal separation</em> breaks
+        down. Identification of the HEE&nbsp;→&nbsp;MH total effect therefore rests on
+        the design assumption that Economic Capital and Education are measured at
+        baseline, not on anything internal to the DAG. Because reversing half the
+        candidate edges merely creates a cycle, the substantively meaningful robustness
+        operation is the latent common cause (A&nbsp;↔&nbsp;B), not arrow-flipping.
+      </p>
     </div>
   </div>
 </div>
@@ -537,6 +606,133 @@ svg { width: 100%; height: 100%; display: block; }
       formal identification analysis and subject to revision through expert review.
     </p>
     <div id="def-groups"></div>
+  </div>
+</div>
+
+<div id="edges-view">
+  <div class="edg-wrap">
+    <p class="edg-intro">
+      Two kinds of edge decision sit behind the DAG. Some candidate edges were
+      <span class="em">excluded</span> as genuinely absent — their effect is already
+      transmitted through existing pathways. Others are <span class="em">present and
+      committed to a single orientation</span> but describe plausibly bidirectional
+      relationships; for these the question is whether orientation affects
+      identification of the <span class="em">HEE&nbsp;→&nbsp;mental health</span> total
+      effect. The second group was tested by a joint sensitivity analysis over all
+      3<sup>8</sup>&nbsp;=&nbsp;6561 orientation / latent-common-cause configurations.
+    </p>
+
+    <div class="edg-section">
+      <h2><span class="dot" style="background:#9AA3AD"></span>Excluded edges</h2>
+      <p class="lede">Edges considered but not drawn: the prima facie case for each, and why it is omitted. These remain genuinely absent from the graph.</p>
+      <div class="edg-list">
+        <div class="edg-card">
+          <div class="edg-name">Education <span class="arr">→</span> HEE</div>
+          <div class="edg-desc">Higher attainment might raise retrofit uptake through energy literacy and subsidy awareness, but British household-survey analysis finds a degree indicator is not a significant predictor of retrofit investment once income and dwelling characteristics are controlled for. The effect is modelled as operating entirely through <em>Education → Economic&nbsp;Capital → HEE</em>, so the direct edge is omitted.</div>
+        </div>
+        <div class="edg-card">
+          <div class="edg-name">Demographics <span class="arr">→</span> HEE</div>
+          <div class="edg-desc">Fuel-poverty and EPC distribution differ by ethnicity, age, and household composition, but LSOA-level analyses find demographic explanatory power over HEE operates predominantly through economic and housing mediators. The effect is captured through <em>Demographics → Housing&nbsp;Characteristics / Economic&nbsp;Capital / Tenure → HEE</em>; a direct edge would double-count.</div>
+        </div>
+        <div class="edg-card">
+          <div class="edg-name">Housing Characteristics <span class="arr">→</span> MH</div>
+          <div class="edg-desc">Persistent poor housing predicts distress, but here <em>Housing&nbsp;Characteristics</em> is physical dwelling form, while housing <em>quality</em> (damp, mould, cold, indoor pollutants) — the proximal driver — is the <em>IEQ</em> node. The mental-health effect is transmitted through <em>Housing&nbsp;Characteristics → IEQ → MH</em>, with further paths via Overcrowding and Isolation; a direct edge would double-count the IEQ-mediated effect.</div>
+        </div>
+        <div class="edg-card">
+          <div class="edg-name">Neighbourhood Stress <span class="arr">→</span> Green Space</div>
+          <div class="edg-desc">Fear of crime and disorder reduce engagement with parks, but <em>Green&nbsp;Space</em> is defined as area-level provision and quality (land-cover and density), not use. The behavioural effect is captured through <em>Neighbourhood&nbsp;Stress → Isolation → MH</em> and the direct <em>Neighbourhood&nbsp;Stress → MH</em> channel; a direct edge would require redefining the node.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="edg-section">
+      <h2><span class="dot" style="background:#4FA06A"></span>Plausible bidirectional edges</h2>
+      <p class="lede">Eight committed edges describe relationships that could run either way. The joint sensitivity analysis asks whether their orientation changes the minimal adjustment set for the HEE&nbsp;→&nbsp;MH total effect. <span class="em">The DAG topology is unchanged — all eight committed orientations are retained.</span></p>
+      <div class="edg-claim">
+        <strong>Headline robustness claim.</strong> The committed (all-original)
+        configuration returns the compact set <em>𝒜&nbsp;= {Climate, Economic&nbsp;Capital,
+        Housing&nbsp;Characteristics, Tenure, Urbanicity}</em>, vindicating the DAG as
+        drawn. Of the 6561 configurations, 73.7% are cyclic, 18.9% identifiable, and
+        only 7.4% non-identifiable. The HEE&nbsp;→&nbsp;MH total effect is identified
+        with core set {C,&nbsp;EC,&nbsp;H,&nbsp;T} (plus U or U_AH) and is
+        <strong>robust to the orientation of every candidate edge except where Economic
+        Capital is given an unmeasured common cause with both HEE and the outcome
+        side</strong>. Non-identifiability has a single gateway — a latent
+        HEE&nbsp;↔&nbsp;Economic&nbsp;Capital common cause is present in
+        <strong>all 486 of 486</strong> non-identifiable configurations — with exactly
+        two minimal breakers: HEE&nbsp;↔&nbsp;EC with EC&nbsp;↔&nbsp;MH, and
+        HEE&nbsp;↔&nbsp;EC with EC&nbsp;↔&nbsp;PH. No outcome-side reorientation breaks
+        identification. Because reversal is itself cyclic for half the candidate edges,
+        the substantively meaningful robustness operation is the
+        <em>latent common cause (A&nbsp;↔&nbsp;B)</em>, not arrow-flipping.
+      </div>
+      <table class="edg-table">
+        <thead>
+          <tr>
+            <th>Edge</th><th>Committed orientation</th><th>Class</th>
+            <th>Effect on identification</th><th>Resolution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="edg-edge">HEE — Economic Capital</span></td>
+            <td><span class="edg-orient">EC → HEE</span></td>
+            <td><span class="edg-pill conf">confounder</span></td>
+            <td>Most load-bearing edge and the <em>sole</em> gateway to non-identifiability: latent HEE&nbsp;↔&nbsp;EC appears in all 486/486 non-identifiable configs and forms both minimal breakers.</td>
+            <td>Resolved by <em>temporal ordering</em>. EC is a baseline / pre-treatment confounder measured before the HEE contrast, licensing the acyclic EC&nbsp;→&nbsp;HEE encoding; the latent variant is the case where that temporal separation fails. The reverse HEE&nbsp;→&nbsp;EC is not drawn — its bill-saving effect is already represented through the affordability channel, and drawing it would conflate the exposure with its own downstream consequence.</td>
+          </tr>
+          <tr>
+            <td><span class="edg-edge">Economic Capital — Education</span></td>
+            <td><span class="edg-orient">ED → EC</span></td>
+            <td><span class="edg-pill conf">confounder</span></td>
+            <td>Inert in isolation but <em>jointly load-bearing</em>: pivotal in 210 joint configurations, though it does not alter 𝒜 in the committed configuration.</td>
+            <td>Resolved by <em>temporal ordering (baseline measurement)</em>. ED and EC are ascertained at baseline, so the acyclic ED&nbsp;→&nbsp;EC direction encodes a feedback system observed at fixed times. The reverse EC&nbsp;→&nbsp;Education (intergenerational) operates outside the analysis's temporal scope and would introduce a cycle; U_AreaHistory absorbs the area-level persistence.</td>
+          </tr>
+          <tr>
+            <td><span class="edg-edge">Economic Capital — Policy Access</span></td>
+            <td><span class="edg-orient">EC → Policy</span></td>
+            <td><span class="edg-pill conf">confounder</span></td>
+            <td>Load-bearing: reversal (Policy&nbsp;→&nbsp;EC) forces Policy into the adjustment set.</td>
+            <td>Resolved by <em>defended orientation + bounded failure mode</em>. ECO, GBIS and Warm Home Discount are means-tested and area-targeted, so area economic capital determines scheme access; under EC&nbsp;→&nbsp;Policy, Policy is a descendant of EC and not required in 𝒜. Under the reversed Policy&nbsp;→&nbsp;EC it would be a required but <em>unmeasured</em> confounder — a named, bounded failure mode, not a silent omission.</td>
+          </tr>
+          <tr>
+            <td><span class="edg-edge">Economic Capital — MH</span></td>
+            <td><span class="edg-orient">EC → MH</span></td>
+            <td><span class="edg-pill conf">confounder</span></td>
+            <td>Latent EC&nbsp;↔&nbsp;MH is one of the two minimal (Hamming-2) non-identifiability legs, paired with latent HEE&nbsp;↔&nbsp;EC.</td>
+            <td>Committed EC&nbsp;→&nbsp;MH retained; EC is measured and adjusted within 𝒜. Non-identifiability arises only if this association is <em>additionally</em> treated as an unmeasured common cause jointly with a latent HEE&nbsp;↔&nbsp;EC link.</td>
+          </tr>
+          <tr>
+            <td><span class="edg-edge">PH — MH</span></td>
+            <td><span class="edg-orient">PH → MH</span></td>
+            <td><span class="edg-pill out">outcome</span></td>
+            <td>Indifferent: neither the reported set 𝒜 nor identifiability changes under reversal or a latent variant; only non-reported alternative minimal sets shift. Shown for transparency.</td>
+            <td>Committed PH&nbsp;→&nbsp;MH retained. The PH–MH relationship is genuinely bidirectional; PH&nbsp;→&nbsp;MH is the conservative choice because it is the direction that opens backdoor paths and so matters for confounder identification, while MH&nbsp;→&nbsp;PH would introduce a cycle without altering the adjustment set.</td>
+          </tr>
+          <tr>
+            <td><span class="edg-edge">Substance Abuse — MH</span></td>
+            <td><span class="edg-orient">SA → MH</span></td>
+            <td><span class="edg-pill out">outcome</span></td>
+            <td>Fully robust: never pivotal among valid graphs (0/2187). Orientation never changes any adjustment set; reversal only induces a cycle. Shown for transparency.</td>
+            <td>Committed SA&nbsp;→&nbsp;MH retained; its orientation is immaterial to identification of the HEE–MH effect, and the only consequence of reversal is an invalid (cyclic) graph.</td>
+          </tr>
+          <tr>
+            <td><span class="edg-edge">Isolation — MH</span></td>
+            <td><span class="edg-orient">SI → MH</span></td>
+            <td><span class="edg-pill out">outcome</span></td>
+            <td>Indifferent: the reported set 𝒜 and identifiability are unaffected; only non-reported alternative minimal sets shift. Shown for transparency.</td>
+            <td>Committed SI&nbsp;→&nbsp;MH retained; the orientation does not affect the reported adjustment set 𝒜 or identifiability of the HEE–MH effect.</td>
+          </tr>
+          <tr>
+            <td><span class="edg-edge">Physical Health — Economic Capital</span></td>
+            <td><span class="edg-orient">EC → PH</span></td>
+            <td><span class="edg-pill conf">confounder</span></td>
+            <td>Latent EC&nbsp;↔&nbsp;PH is the other minimal (Hamming-2) non-identifiability leg, paired with latent HEE&nbsp;↔&nbsp;EC.</td>
+            <td>Committed EC&nbsp;→&nbsp;PH retained; both EC and PH are handled within the graph. Non-identifiability arises only if this association is <em>additionally</em> treated as an unmeasured common cause jointly with a latent HEE&nbsp;↔&nbsp;EC link.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
@@ -1384,6 +1580,7 @@ const dagView = document.getElementById('svg-container');
 const toolbarEl = document.getElementById('toolbar');
 const asmView = document.getElementById('assumptions-view');
 const defView = document.getElementById('definitions-view');
+const edgView = document.getElementById('edges-view');
 tabBtns.forEach(btn => btn.addEventListener('click', () => {
   const view = btn.dataset.view;
   tabBtns.forEach(b => b.classList.toggle('active', b === btn));
@@ -1392,6 +1589,7 @@ tabBtns.forEach(btn => btn.addEventListener('click', () => {
   toolbarEl.style.display = onDag ? 'flex' : 'none';
   asmView.classList.toggle('on', view === 'assumptions');
   defView.classList.toggle('on', view === 'definitions');
+  edgView.classList.toggle('on', view === 'edges');
 }));
 
 // ── Keyboard shortcuts ────────────────────────────────────────────────────────
