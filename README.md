@@ -10,6 +10,20 @@ Expert feedback is collected through GitHub Issues. This document explains how t
 
 ## Changelog
 
+### v1.1.1 — 2026-06-24
+
+Changes since v1.1.0.
+
+**DAG structure**
+
+- **Reinstated** edge **Climate → HEE** (reversing its removal in v1.1.0). Regional climate shapes domestic heat-demand profiles and thus the marginal value of efficiency measures: because the absolute energy and cost savings of a given fabric measure scale with underlying heat demand, regional variation in demand alters the cost-effectiveness and geographic targeting of retrofit, and hence the efficiency state ultimately achieved across the stock (Aragón et al. 2022). The edge moves out of the excluded-edges table and into the *Edges into HEE* table.
+
+**Adjustment set**
+
+- With `Climate → HEE` restored, Climate is again a common cause of HEE and MH, so the minimal sufficient adjustment set for the total effect HEE → MH returns to the **five-node set {Climate, Economic Capital, Housing Characteristics, Tenure, Urbanicity}**. (While the edge was excluded in v1.1.0, Climate reached HEE only via `Climate → Housing → HEE`, already blocked by conditioning on Housing, so the set had collapsed to four.) The DAG's adjustment-set highlighting reflects the five-node set.
+
+The graph now has **25 nodes and 89 directed edges**.
+
 ### v1.1.0 — 2026-06-23
 
 Changes since v1.0.0.
