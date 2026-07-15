@@ -1,0 +1,26 @@
+node,full_name,status,column,note
+A,Accessibility,measured,gpp_dist,distance to nearest GP practice
+AP,Air Pollution,measured,no2_mean,mean NO2 concentration
+C,Climate,measured,DJF_w,mean winter (DJF) temperature
+D,Demographics,measured,65+,share of residents aged 65+ (age structure)
+DC,Digital Capital,excluded,,No broadband / digital-exclusion measure in the data.
+EC,Economic Capital,measured,Income Score (rate),IMD income-deprivation rate
+ED,Education,measured,"Education, Skills and Training Score",IMD education-deprivation score
+FP,Fuel Poverty,measured,fuel_poor_pct,DESNZ sub-regional LILEE: proportion of households fuel poor (%)
+GS,Green Space,measured,green_act,active green-space access
+H,Housing Characteristics,measured,BUILT_BEFORE_1950,share of dwellings built pre-1950 (construction era)
+HEE,Home Energy Efficiency,measured,RATING_MEDIAN_100,LSOA median EPC/SAP rating (0-100)
+IEQ,Indoor Environmental Quality,excluded,,No area-level damp/mould/thermal-comfort measure in the data.
+MH,Mental Health,measured,Dep rate,QOF GP-recorded depression prevalence (primary outcome)
+N,Neighbourhood,excluded,,Latent scale-bridging construct by design; no direct measure.
+NO,Noise,excluded,,No environmental-noise (L_den/L_night) measure in the data.
+NS,Neighbourhood Stress,measured,Crime Score,IMD crime-deprivation score
+O,Overcrowding,measured,hhsize_ave,average household size
+P,Policy Scheme Access,excluded,,No ECO/Warm-Home-Discount scheme-uptake measure in the data.
+PH,Physical Health,measured,Health Deprivation and Disability Score,IMD health-deprivation & disability score
+SA,Substance Abuse,excluded,,No alcohol/drug-misuse prevalence measure (access-distance is not prevalence).
+SC,Social Capital,excluded,,No social-capital / civic-participation measure in the data.
+SI,Isolation,excluded,,No isolation / loneliness measure in the data.
+T,Tenure,measured,rented,share of rented dwellings (private + social)
+U,Urbanicity,measured,pop_density,population density (persons/ha)
+U_AH,Unobserved Area History,excluded,,Unobserved area history; latent root cause by design.

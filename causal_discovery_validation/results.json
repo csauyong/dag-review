@@ -1,0 +1,2585 @@
+{
+  "counts": {
+    "n_nodes": 25,
+    "n_edges": 89,
+    "duplicate_edges": 0,
+    "acyclic": true,
+    "n_measured": 16,
+    "n_excluded": 9,
+    "n_induced_edges": 40
+  },
+  "runs": {
+    "primary_DepRate": {
+      "n": 31802,
+      "localtests": {
+        "n_implications": 80,
+        "failures": {
+          "ge_0.05": 69,
+          "ge_0.1": 62,
+          "ge_0.15": 55
+        },
+        "max_abs_r": 0.6377831217916727,
+        "median_abs_r": 0.2133016840200196,
+        "fail_ge_0.10": 62,
+        "fail_explained_by_latent": 48,
+        "fail_genuine_tension": 14
+      },
+      "pc": {
+        "pc_a0.01_notier": {
+          "n_expert_edges": 40,
+          "n_discovered_edges": 45,
+          "skeleton_tp": 19,
+          "skeleton_precision": 0.4222222222222222,
+          "skeleton_recall": 0.475,
+          "skeleton_f1": 0.4470588235294118,
+          "shd": 62,
+          "orient_mismatch": 15,
+          "n_missing": 21,
+          "n_extra": 26,
+          "n_expert_vstruct": 85,
+          "n_discovered_vstruct": 45,
+          "vstruct_tp": 1,
+          "vstruct_precision": 0.022222222222222223,
+          "vstruct_recall": 0.011764705882352941,
+          "missing_edges": [
+            [
+              "A",
+              "MH"
+            ],
+            [
+              "AP",
+              "GS"
+            ],
+            [
+              "AP",
+              "PH"
+            ],
+            [
+              "C",
+              "H"
+            ],
+            [
+              "C",
+              "HEE"
+            ],
+            [
+              "D",
+              "EC"
+            ],
+            [
+              "D",
+              "ED"
+            ],
+            [
+              "D",
+              "H"
+            ],
+            [
+              "D",
+              "MH"
+            ],
+            [
+              "EC",
+              "H"
+            ],
+            [
+              "EC",
+              "HEE"
+            ],
+            [
+              "EC",
+              "MH"
+            ],
+            [
+              "EC",
+              "U"
+            ],
+            [
+              "ED",
+              "U"
+            ],
+            [
+              "FP",
+              "MH"
+            ],
+            [
+              "GS",
+              "MH"
+            ],
+            [
+              "GS",
+              "PH"
+            ],
+            [
+              "H",
+              "PH"
+            ],
+            [
+              "HEE",
+              "U"
+            ],
+            [
+              "MH",
+              "NS"
+            ],
+            [
+              "MH",
+              "T"
+            ]
+          ],
+          "extra_edges": [
+            [
+              "A",
+              "AP"
+            ],
+            [
+              "A",
+              "GS"
+            ],
+            [
+              "A",
+              "HEE"
+            ],
+            [
+              "A",
+              "NS"
+            ],
+            [
+              "A",
+              "O"
+            ],
+            [
+              "A",
+              "U"
+            ],
+            [
+              "AP",
+              "C"
+            ],
+            [
+              "AP",
+              "D"
+            ],
+            [
+              "AP",
+              "NS"
+            ],
+            [
+              "AP",
+              "O"
+            ],
+            [
+              "AP",
+              "U"
+            ],
+            [
+              "C",
+              "GS"
+            ],
+            [
+              "C",
+              "U"
+            ],
+            [
+              "D",
+              "GS"
+            ],
+            [
+              "D",
+              "NS"
+            ],
+            [
+              "D",
+              "T"
+            ],
+            [
+              "D",
+              "U"
+            ],
+            [
+              "EC",
+              "NS"
+            ],
+            [
+              "ED",
+              "FP"
+            ],
+            [
+              "FP",
+              "H"
+            ],
+            [
+              "GS",
+              "HEE"
+            ],
+            [
+              "GS",
+              "NS"
+            ],
+            [
+              "H",
+              "O"
+            ],
+            [
+              "H",
+              "U"
+            ],
+            [
+              "NS",
+              "T"
+            ],
+            [
+              "T",
+              "U"
+            ]
+          ]
+        },
+        "pc_a0.01_tier": {
+          "n_expert_edges": 40,
+          "n_discovered_edges": 45,
+          "skeleton_tp": 19,
+          "skeleton_precision": 0.4222222222222222,
+          "skeleton_recall": 0.475,
+          "skeleton_f1": 0.4470588235294118,
+          "shd": 50,
+          "orient_mismatch": 3,
+          "n_missing": 21,
+          "n_extra": 26,
+          "n_expert_vstruct": 85,
+          "n_discovered_vstruct": 52,
+          "vstruct_tp": 12,
+          "vstruct_precision": 0.23076923076923078,
+          "vstruct_recall": 0.1411764705882353,
+          "missing_edges": [
+            [
+              "A",
+              "MH"
+            ],
+            [
+              "AP",
+              "GS"
+            ],
+            [
+              "AP",
+              "PH"
+            ],
+            [
+              "C",
+              "H"
+            ],
+            [
+              "C",
+              "HEE"
+            ],
+            [
+              "D",
+              "EC"
+            ],
+            [
+              "D",
+              "ED"
+            ],
+            [
+              "D",
+              "H"
+            ],
+            [
+              "D",
+              "MH"
+            ],
+            [
+              "EC",
+              "H"
+            ],
+            [
+              "EC",
+              "HEE"
+            ],
+            [
+              "EC",
+              "MH"
+            ],
+            [
+              "EC",
+              "U"
+            ],
+            [
+              "ED",
+              "U"
+            ],
+            [
+              "FP",
+              "MH"
+            ],
+            [
+              "GS",
+              "MH"
+            ],
+            [
+              "GS",
+              "PH"
+            ],
+            [
+              "H",
+              "PH"
+            ],
+            [
+              "HEE",
+              "U"
+            ],
+            [
+              "MH",
+              "NS"
+            ],
+            [
+              "MH",
+              "T"
+            ]
+          ],
+          "extra_edges": [
+            [
+              "A",
+              "AP"
+            ],
+            [
+              "A",
+              "GS"
+            ],
+            [
+              "A",
+              "HEE"
+            ],
+            [
+              "A",
+              "NS"
+            ],
+            [
+              "A",
+              "O"
+            ],
+            [
+              "A",
+              "U"
+            ],
+            [
+              "AP",
+              "C"
+            ],
+            [
+              "AP",
+              "D"
+            ],
+            [
+              "AP",
+              "NS"
+            ],
+            [
+              "AP",
+              "O"
+            ],
+            [
+              "AP",
+              "U"
+            ],
+            [
+              "C",
+              "GS"
+            ],
+            [
+              "C",
+              "U"
+            ],
+            [
+              "D",
+              "GS"
+            ],
+            [
+              "D",
+              "NS"
+            ],
+            [
+              "D",
+              "T"
+            ],
+            [
+              "D",
+              "U"
+            ],
+            [
+              "EC",
+              "NS"
+            ],
+            [
+              "ED",
+              "FP"
+            ],
+            [
+              "FP",
+              "H"
+            ],
+            [
+              "GS",
+              "HEE"
+            ],
+            [
+              "GS",
+              "NS"
+            ],
+            [
+              "H",
+              "O"
+            ],
+            [
+              "H",
+              "U"
+            ],
+            [
+              "NS",
+              "T"
+            ],
+            [
+              "T",
+              "U"
+            ]
+          ]
+        },
+        "pc_a0.005_notier": {
+          "n_expert_edges": 40,
+          "n_discovered_edges": 43,
+          "skeleton_tp": 18,
+          "skeleton_precision": 0.4186046511627907,
+          "skeleton_recall": 0.45,
+          "skeleton_f1": 0.43373493975903615,
+          "shd": 61,
+          "orient_mismatch": 14,
+          "n_missing": 22,
+          "n_extra": 25,
+          "n_expert_vstruct": 85,
+          "n_discovered_vstruct": 41,
+          "vstruct_tp": 1,
+          "vstruct_precision": 0.024390243902439025,
+          "vstruct_recall": 0.011764705882352941,
+          "missing_edges": [
+            [
+              "A",
+              "MH"
+            ],
+            [
+              "AP",
+              "GS"
+            ],
+            [
+              "AP",
+              "PH"
+            ],
+            [
+              "C",
+              "H"
+            ],
+            [
+              "C",
+              "HEE"
+            ],
+            [
+              "D",
+              "EC"
+            ],
+            [
+              "D",
+              "ED"
+            ],
+            [
+              "D",
+              "H"
+            ],
+            [
+              "D",
+              "MH"
+            ],
+            [
+              "EC",
+              "FP"
+            ],
+            [
+              "EC",
+              "H"
+            ],
+            [
+              "EC",
+              "HEE"
+            ],
+            [
+              "EC",
+              "MH"
+            ],
+            [
+              "EC",
+              "U"
+            ],
+            [
+              "ED",
+              "U"
+            ],
+            [
+              "FP",
+              "MH"
+            ],
+            [
+              "GS",
+              "MH"
+            ],
+            [
+              "GS",
+              "PH"
+            ],
+            [
+              "H",
+              "PH"
+            ],
+            [
+              "HEE",
+              "U"
+            ],
+            [
+              "MH",
+              "NS"
+            ],
+            [
+              "MH",
+              "T"
+            ]
+          ],
+          "extra_edges": [
+            [
+              "A",
+              "AP"
+            ],
+            [
+              "A",
+              "GS"
+            ],
+            [
+              "A",
+              "HEE"
+            ],
+            [
+              "A",
+              "NS"
+            ],
+            [
+              "A",
+              "O"
+            ],
+            [
+              "A",
+              "U"
+            ],
+            [
+              "AP",
+              "C"
+            ],
+            [
+              "AP",
+              "D"
+            ],
+            [
+              "AP",
+              "NS"
+            ],
+            [
+              "AP",
+              "O"
+            ],
+            [
+              "AP",
+              "U"
+            ],
+            [
+              "C",
+              "GS"
+            ],
+            [
+              "C",
+              "U"
+            ],
+            [
+              "D",
+              "NS"
+            ],
+            [
+              "D",
+              "T"
+            ],
+            [
+              "D",
+              "U"
+            ],
+            [
+              "EC",
+              "NS"
+            ],
+            [
+              "ED",
+              "FP"
+            ],
+            [
+              "FP",
+              "H"
+            ],
+            [
+              "GS",
+              "HEE"
+            ],
+            [
+              "GS",
+              "NS"
+            ],
+            [
+              "H",
+              "O"
+            ],
+            [
+              "H",
+              "U"
+            ],
+            [
+              "NS",
+              "T"
+            ],
+            [
+              "T",
+              "U"
+            ]
+          ]
+        },
+        "pc_a0.005_tier": {
+          "n_expert_edges": 40,
+          "n_discovered_edges": 43,
+          "skeleton_tp": 18,
+          "skeleton_precision": 0.4186046511627907,
+          "skeleton_recall": 0.45,
+          "skeleton_f1": 0.43373493975903615,
+          "shd": 50,
+          "orient_mismatch": 3,
+          "n_missing": 22,
+          "n_extra": 25,
+          "n_expert_vstruct": 85,
+          "n_discovered_vstruct": 47,
+          "vstruct_tp": 11,
+          "vstruct_precision": 0.23404255319148937,
+          "vstruct_recall": 0.12941176470588237,
+          "missing_edges": [
+            [
+              "A",
+              "MH"
+            ],
+            [
+              "AP",
+              "GS"
+            ],
+            [
+              "AP",
+              "PH"
+            ],
+            [
+              "C",
+              "H"
+            ],
+            [
+              "C",
+              "HEE"
+            ],
+            [
+              "D",
+              "EC"
+            ],
+            [
+              "D",
+              "ED"
+            ],
+            [
+              "D",
+              "H"
+            ],
+            [
+              "D",
+              "MH"
+            ],
+            [
+              "EC",
+              "FP"
+            ],
+            [
+              "EC",
+              "H"
+            ],
+            [
+              "EC",
+              "HEE"
+            ],
+            [
+              "EC",
+              "MH"
+            ],
+            [
+              "EC",
+              "U"
+            ],
+            [
+              "ED",
+              "U"
+            ],
+            [
+              "FP",
+              "MH"
+            ],
+            [
+              "GS",
+              "MH"
+            ],
+            [
+              "GS",
+              "PH"
+            ],
+            [
+              "H",
+              "PH"
+            ],
+            [
+              "HEE",
+              "U"
+            ],
+            [
+              "MH",
+              "NS"
+            ],
+            [
+              "MH",
+              "T"
+            ]
+          ],
+          "extra_edges": [
+            [
+              "A",
+              "AP"
+            ],
+            [
+              "A",
+              "GS"
+            ],
+            [
+              "A",
+              "HEE"
+            ],
+            [
+              "A",
+              "NS"
+            ],
+            [
+              "A",
+              "O"
+            ],
+            [
+              "A",
+              "U"
+            ],
+            [
+              "AP",
+              "C"
+            ],
+            [
+              "AP",
+              "D"
+            ],
+            [
+              "AP",
+              "NS"
+            ],
+            [
+              "AP",
+              "O"
+            ],
+            [
+              "AP",
+              "U"
+            ],
+            [
+              "C",
+              "GS"
+            ],
+            [
+              "C",
+              "U"
+            ],
+            [
+              "D",
+              "NS"
+            ],
+            [
+              "D",
+              "T"
+            ],
+            [
+              "D",
+              "U"
+            ],
+            [
+              "EC",
+              "NS"
+            ],
+            [
+              "ED",
+              "FP"
+            ],
+            [
+              "FP",
+              "H"
+            ],
+            [
+              "GS",
+              "HEE"
+            ],
+            [
+              "GS",
+              "NS"
+            ],
+            [
+              "H",
+              "O"
+            ],
+            [
+              "H",
+              "U"
+            ],
+            [
+              "NS",
+              "T"
+            ],
+            [
+              "T",
+              "U"
+            ]
+          ]
+        },
+        "pc_a0.001_notier": {
+          "n_expert_edges": 40,
+          "n_discovered_edges": 44,
+          "skeleton_tp": 18,
+          "skeleton_precision": 0.4090909090909091,
+          "skeleton_recall": 0.45,
+          "skeleton_f1": 0.4285714285714286,
+          "shd": 62,
+          "orient_mismatch": 14,
+          "n_missing": 22,
+          "n_extra": 26,
+          "n_expert_vstruct": 85,
+          "n_discovered_vstruct": 44,
+          "vstruct_tp": 1,
+          "vstruct_precision": 0.022727272727272728,
+          "vstruct_recall": 0.011764705882352941,
+          "missing_edges": [
+            [
+              "A",
+              "MH"
+            ],
+            [
+              "AP",
+              "GS"
+            ],
+            [
+              "AP",
+              "PH"
+            ],
+            [
+              "C",
+              "H"
+            ],
+            [
+              "C",
+              "HEE"
+            ],
+            [
+              "D",
+              "EC"
+            ],
+            [
+              "D",
+              "ED"
+            ],
+            [
+              "D",
+              "H"
+            ],
+            [
+              "D",
+              "MH"
+            ],
+            [
+              "EC",
+              "FP"
+            ],
+            [
+              "EC",
+              "H"
+            ],
+            [
+              "EC",
+              "HEE"
+            ],
+            [
+              "EC",
+              "MH"
+            ],
+            [
+              "EC",
+              "U"
+            ],
+            [
+              "ED",
+              "U"
+            ],
+            [
+              "FP",
+              "MH"
+            ],
+            [
+              "GS",
+              "MH"
+            ],
+            [
+              "GS",
+              "PH"
+            ],
+            [
+              "H",
+              "PH"
+            ],
+            [
+              "HEE",
+              "U"
+            ],
+            [
+              "MH",
+              "NS"
+            ],
+            [
+              "MH",
+              "T"
+            ]
+          ],
+          "extra_edges": [
+            [
+              "A",
+              "AP"
+            ],
+            [
+              "A",
+              "GS"
+            ],
+            [
+              "A",
+              "HEE"
+            ],
+            [
+              "A",
+              "NS"
+            ],
+            [
+              "A",
+              "O"
+            ],
+            [
+              "A",
+              "U"
+            ],
+            [
+              "AP",
+              "C"
+            ],
+            [
+              "AP",
+              "D"
+            ],
+            [
+              "AP",
+              "NS"
+            ],
+            [
+              "AP",
+              "O"
+            ],
+            [
+              "AP",
+              "U"
+            ],
+            [
+              "C",
+              "GS"
+            ],
+            [
+              "C",
+              "U"
+            ],
+            [
+              "D",
+              "NS"
+            ],
+            [
+              "D",
+              "T"
+            ],
+            [
+              "D",
+              "U"
+            ],
+            [
+              "EC",
+              "NS"
+            ],
+            [
+              "ED",
+              "FP"
+            ],
+            [
+              "ED",
+              "T"
+            ],
+            [
+              "FP",
+              "H"
+            ],
+            [
+              "GS",
+              "HEE"
+            ],
+            [
+              "GS",
+              "NS"
+            ],
+            [
+              "H",
+              "O"
+            ],
+            [
+              "H",
+              "U"
+            ],
+            [
+              "NS",
+              "T"
+            ],
+            [
+              "T",
+              "U"
+            ]
+          ]
+        },
+        "pc_a0.001_tier": {
+          "n_expert_edges": 40,
+          "n_discovered_edges": 44,
+          "skeleton_tp": 18,
+          "skeleton_precision": 0.4090909090909091,
+          "skeleton_recall": 0.45,
+          "skeleton_f1": 0.4285714285714286,
+          "shd": 51,
+          "orient_mismatch": 3,
+          "n_missing": 22,
+          "n_extra": 26,
+          "n_expert_vstruct": 85,
+          "n_discovered_vstruct": 51,
+          "vstruct_tp": 11,
+          "vstruct_precision": 0.21568627450980393,
+          "vstruct_recall": 0.12941176470588237,
+          "missing_edges": [
+            [
+              "A",
+              "MH"
+            ],
+            [
+              "AP",
+              "GS"
+            ],
+            [
+              "AP",
+              "PH"
+            ],
+            [
+              "C",
+              "H"
+            ],
+            [
+              "C",
+              "HEE"
+            ],
+            [
+              "D",
+              "EC"
+            ],
+            [
+              "D",
+              "ED"
+            ],
+            [
+              "D",
+              "H"
+            ],
+            [
+              "D",
+              "MH"
+            ],
+            [
+              "EC",
+              "FP"
+            ],
+            [
+              "EC",
+              "H"
+            ],
+            [
+              "EC",
+              "HEE"
+            ],
+            [
+              "EC",
+              "MH"
+            ],
+            [
+              "EC",
+              "U"
+            ],
+            [
+              "ED",
+              "U"
+            ],
+            [
+              "FP",
+              "MH"
+            ],
+            [
+              "GS",
+              "MH"
+            ],
+            [
+              "GS",
+              "PH"
+            ],
+            [
+              "H",
+              "PH"
+            ],
+            [
+              "HEE",
+              "U"
+            ],
+            [
+              "MH",
+              "NS"
+            ],
+            [
+              "MH",
+              "T"
+            ]
+          ],
+          "extra_edges": [
+            [
+              "A",
+              "AP"
+            ],
+            [
+              "A",
+              "GS"
+            ],
+            [
+              "A",
+              "HEE"
+            ],
+            [
+              "A",
+              "NS"
+            ],
+            [
+              "A",
+              "O"
+            ],
+            [
+              "A",
+              "U"
+            ],
+            [
+              "AP",
+              "C"
+            ],
+            [
+              "AP",
+              "D"
+            ],
+            [
+              "AP",
+              "NS"
+            ],
+            [
+              "AP",
+              "O"
+            ],
+            [
+              "AP",
+              "U"
+            ],
+            [
+              "C",
+              "GS"
+            ],
+            [
+              "C",
+              "U"
+            ],
+            [
+              "D",
+              "NS"
+            ],
+            [
+              "D",
+              "T"
+            ],
+            [
+              "D",
+              "U"
+            ],
+            [
+              "EC",
+              "NS"
+            ],
+            [
+              "ED",
+              "FP"
+            ],
+            [
+              "ED",
+              "T"
+            ],
+            [
+              "FP",
+              "H"
+            ],
+            [
+              "GS",
+              "HEE"
+            ],
+            [
+              "GS",
+              "NS"
+            ],
+            [
+              "H",
+              "O"
+            ],
+            [
+              "H",
+              "U"
+            ],
+            [
+              "NS",
+              "T"
+            ],
+            [
+              "T",
+              "U"
+            ]
+          ]
+        }
+      },
+      "fci": {
+        "fci_a0.01": {
+          "n_expert_edges": 40,
+          "n_discovered_edges": 39,
+          "skeleton_tp": 16,
+          "skeleton_precision": 0.41025641025641024,
+          "skeleton_recall": 0.4,
+          "skeleton_f1": 0.4050632911392405,
+          "shd": 61,
+          "orient_mismatch": 14,
+          "n_missing": 24,
+          "n_extra": 23,
+          "n_expert_vstruct": 85,
+          "n_discovered_vstruct": 87,
+          "vstruct_tp": 9,
+          "vstruct_precision": 0.10344827586206896,
+          "vstruct_recall": 0.10588235294117647,
+          "missing_edges": [
+            [
+              "A",
+              "MH"
+            ],
+            [
+              "AP",
+              "GS"
+            ],
+            [
+              "AP",
+              "PH"
+            ],
+            [
+              "C",
+              "H"
+            ],
+            [
+              "C",
+              "HEE"
+            ],
+            [
+              "D",
+              "EC"
+            ],
+            [
+              "D",
+              "ED"
+            ],
+            [
+              "D",
+              "H"
+            ],
+            [
+              "D",
+              "MH"
+            ],
+            [
+              "EC",
+              "FP"
+            ],
+            [
+              "EC",
+              "H"
+            ],
+            [
+              "EC",
+              "HEE"
+            ],
+            [
+              "EC",
+              "MH"
+            ],
+            [
+              "EC",
+              "U"
+            ],
+            [
+              "ED",
+              "PH"
+            ],
+            [
+              "ED",
+              "U"
+            ],
+            [
+              "FP",
+              "MH"
+            ],
+            [
+              "FP",
+              "PH"
+            ],
+            [
+              "GS",
+              "MH"
+            ],
+            [
+              "GS",
+              "PH"
+            ],
+            [
+              "H",
+              "PH"
+            ],
+            [
+              "HEE",
+              "U"
+            ],
+            [
+              "MH",
+              "NS"
+            ],
+            [
+              "MH",
+              "T"
+            ]
+          ],
+          "extra_edges": [
+            [
+              "A",
+              "AP"
+            ],
+            [
+              "A",
+              "GS"
+            ],
+            [
+              "A",
+              "HEE"
+            ],
+            [
+              "A",
+              "NS"
+            ],
+            [
+              "A",
+              "O"
+            ],
+            [
+              "A",
+              "U"
+            ],
+            [
+              "AP",
+              "D"
+            ],
+            [
+              "AP",
+              "NS"
+            ],
+            [
+              "AP",
+              "O"
+            ],
+            [
+              "AP",
+              "U"
+            ],
+            [
+              "C",
+              "U"
+            ],
+            [
+              "D",
+              "GS"
+            ],
+            [
+              "D",
+              "NS"
+            ],
+            [
+              "D",
+              "T"
+            ],
+            [
+              "D",
+              "U"
+            ],
+            [
+              "EC",
+              "NS"
+            ],
+            [
+              "ED",
+              "FP"
+            ],
+            [
+              "FP",
+              "H"
+            ],
+            [
+              "GS",
+              "HEE"
+            ],
+            [
+              "GS",
+              "NS"
+            ],
+            [
+              "H",
+              "U"
+            ],
+            [
+              "NS",
+              "T"
+            ],
+            [
+              "T",
+              "U"
+            ]
+          ]
+        },
+        "fci_a0.005": {
+          "n_expert_edges": 40,
+          "n_discovered_edges": 37,
+          "skeleton_tp": 16,
+          "skeleton_precision": 0.43243243243243246,
+          "skeleton_recall": 0.4,
+          "skeleton_f1": 0.4155844155844156,
+          "shd": 59,
+          "orient_mismatch": 14,
+          "n_missing": 24,
+          "n_extra": 21,
+          "n_expert_vstruct": 85,
+          "n_discovered_vstruct": 84,
+          "vstruct_tp": 8,
+          "vstruct_precision": 0.09523809523809523,
+          "vstruct_recall": 0.09411764705882353,
+          "missing_edges": [
+            [
+              "A",
+              "MH"
+            ],
+            [
+              "AP",
+              "GS"
+            ],
+            [
+              "AP",
+              "PH"
+            ],
+            [
+              "C",
+              "H"
+            ],
+            [
+              "C",
+              "HEE"
+            ],
+            [
+              "D",
+              "EC"
+            ],
+            [
+              "D",
+              "ED"
+            ],
+            [
+              "D",
+              "H"
+            ],
+            [
+              "D",
+              "MH"
+            ],
+            [
+              "EC",
+              "FP"
+            ],
+            [
+              "EC",
+              "H"
+            ],
+            [
+              "EC",
+              "HEE"
+            ],
+            [
+              "EC",
+              "MH"
+            ],
+            [
+              "EC",
+              "U"
+            ],
+            [
+              "ED",
+              "MH"
+            ],
+            [
+              "ED",
+              "PH"
+            ],
+            [
+              "ED",
+              "U"
+            ],
+            [
+              "FP",
+              "MH"
+            ],
+            [
+              "GS",
+              "MH"
+            ],
+            [
+              "GS",
+              "PH"
+            ],
+            [
+              "H",
+              "PH"
+            ],
+            [
+              "HEE",
+              "U"
+            ],
+            [
+              "MH",
+              "NS"
+            ],
+            [
+              "MH",
+              "T"
+            ]
+          ],
+          "extra_edges": [
+            [
+              "A",
+              "AP"
+            ],
+            [
+              "A",
+              "GS"
+            ],
+            [
+              "A",
+              "HEE"
+            ],
+            [
+              "A",
+              "NS"
+            ],
+            [
+              "A",
+              "O"
+            ],
+            [
+              "A",
+              "U"
+            ],
+            [
+              "AP",
+              "D"
+            ],
+            [
+              "AP",
+              "NS"
+            ],
+            [
+              "AP",
+              "O"
+            ],
+            [
+              "AP",
+              "U"
+            ],
+            [
+              "C",
+              "U"
+            ],
+            [
+              "D",
+              "T"
+            ],
+            [
+              "D",
+              "U"
+            ],
+            [
+              "EC",
+              "NS"
+            ],
+            [
+              "ED",
+              "FP"
+            ],
+            [
+              "FP",
+              "H"
+            ],
+            [
+              "GS",
+              "HEE"
+            ],
+            [
+              "GS",
+              "NS"
+            ],
+            [
+              "H",
+              "U"
+            ],
+            [
+              "NS",
+              "T"
+            ],
+            [
+              "T",
+              "U"
+            ]
+          ]
+        },
+        "fci_a0.001": {
+          "n_expert_edges": 40,
+          "n_discovered_edges": 37,
+          "skeleton_tp": 16,
+          "skeleton_precision": 0.43243243243243246,
+          "skeleton_recall": 0.4,
+          "skeleton_f1": 0.4155844155844156,
+          "shd": 59,
+          "orient_mismatch": 14,
+          "n_missing": 24,
+          "n_extra": 21,
+          "n_expert_vstruct": 85,
+          "n_discovered_vstruct": 84,
+          "vstruct_tp": 8,
+          "vstruct_precision": 0.09523809523809523,
+          "vstruct_recall": 0.09411764705882353,
+          "missing_edges": [
+            [
+              "A",
+              "MH"
+            ],
+            [
+              "AP",
+              "GS"
+            ],
+            [
+              "AP",
+              "PH"
+            ],
+            [
+              "C",
+              "H"
+            ],
+            [
+              "C",
+              "HEE"
+            ],
+            [
+              "D",
+              "EC"
+            ],
+            [
+              "D",
+              "ED"
+            ],
+            [
+              "D",
+              "H"
+            ],
+            [
+              "D",
+              "MH"
+            ],
+            [
+              "EC",
+              "FP"
+            ],
+            [
+              "EC",
+              "H"
+            ],
+            [
+              "EC",
+              "HEE"
+            ],
+            [
+              "EC",
+              "MH"
+            ],
+            [
+              "EC",
+              "U"
+            ],
+            [
+              "ED",
+              "MH"
+            ],
+            [
+              "ED",
+              "PH"
+            ],
+            [
+              "ED",
+              "U"
+            ],
+            [
+              "FP",
+              "MH"
+            ],
+            [
+              "GS",
+              "MH"
+            ],
+            [
+              "GS",
+              "PH"
+            ],
+            [
+              "H",
+              "PH"
+            ],
+            [
+              "HEE",
+              "U"
+            ],
+            [
+              "MH",
+              "NS"
+            ],
+            [
+              "MH",
+              "T"
+            ]
+          ],
+          "extra_edges": [
+            [
+              "A",
+              "AP"
+            ],
+            [
+              "A",
+              "GS"
+            ],
+            [
+              "A",
+              "HEE"
+            ],
+            [
+              "A",
+              "NS"
+            ],
+            [
+              "A",
+              "O"
+            ],
+            [
+              "A",
+              "U"
+            ],
+            [
+              "AP",
+              "D"
+            ],
+            [
+              "AP",
+              "NS"
+            ],
+            [
+              "AP",
+              "O"
+            ],
+            [
+              "AP",
+              "U"
+            ],
+            [
+              "C",
+              "U"
+            ],
+            [
+              "D",
+              "T"
+            ],
+            [
+              "D",
+              "U"
+            ],
+            [
+              "EC",
+              "NS"
+            ],
+            [
+              "ED",
+              "FP"
+            ],
+            [
+              "FP",
+              "H"
+            ],
+            [
+              "GS",
+              "HEE"
+            ],
+            [
+              "GS",
+              "NS"
+            ],
+            [
+              "H",
+              "U"
+            ],
+            [
+              "NS",
+              "T"
+            ],
+            [
+              "T",
+              "U"
+            ]
+          ]
+        }
+      }
+    },
+    "robustness_SAMHI": {
+      "n": 31802,
+      "localtests": {
+        "n_implications": 80,
+        "failures": {
+          "ge_0.05": 70,
+          "ge_0.1": 62,
+          "ge_0.15": 55
+        },
+        "max_abs_r": 0.6377831217916727,
+        "median_abs_r": 0.2133016840200196,
+        "fail_ge_0.10": 62,
+        "fail_explained_by_latent": 48,
+        "fail_genuine_tension": 14
+      },
+      "pc": {
+        "pc_a0.01_notier": {
+          "n_expert_edges": 40,
+          "n_discovered_edges": 42,
+          "skeleton_tp": 16,
+          "skeleton_precision": 0.38095238095238093,
+          "skeleton_recall": 0.4,
+          "skeleton_f1": 0.3902439024390244,
+          "shd": 64,
+          "orient_mismatch": 14,
+          "n_missing": 24,
+          "n_extra": 26,
+          "n_expert_vstruct": 85,
+          "n_discovered_vstruct": 38,
+          "vstruct_tp": 0,
+          "vstruct_precision": 0.0,
+          "vstruct_recall": 0.0,
+          "missing_edges": [
+            [
+              "A",
+              "MH"
+            ],
+            [
+              "AP",
+              "GS"
+            ],
+            [
+              "AP",
+              "PH"
+            ],
+            [
+              "C",
+              "H"
+            ],
+            [
+              "C",
+              "HEE"
+            ],
+            [
+              "C",
+              "MH"
+            ],
+            [
+              "D",
+              "EC"
+            ],
+            [
+              "D",
+              "ED"
+            ],
+            [
+              "D",
+              "H"
+            ],
+            [
+              "D",
+              "MH"
+            ],
+            [
+              "EC",
+              "H"
+            ],
+            [
+              "EC",
+              "HEE"
+            ],
+            [
+              "EC",
+              "MH"
+            ],
+            [
+              "EC",
+              "U"
+            ],
+            [
+              "ED",
+              "PH"
+            ],
+            [
+              "ED",
+              "U"
+            ],
+            [
+              "FP",
+              "MH"
+            ],
+            [
+              "GS",
+              "MH"
+            ],
+            [
+              "GS",
+              "PH"
+            ],
+            [
+              "H",
+              "PH"
+            ],
+            [
+              "HEE",
+              "U"
+            ],
+            [
+              "MH",
+              "NS"
+            ],
+            [
+              "MH",
+              "O"
+            ],
+            [
+              "MH",
+              "T"
+            ]
+          ],
+          "extra_edges": [
+            [
+              "A",
+              "AP"
+            ],
+            [
+              "A",
+              "GS"
+            ],
+            [
+              "A",
+              "HEE"
+            ],
+            [
+              "A",
+              "NS"
+            ],
+            [
+              "A",
+              "O"
+            ],
+            [
+              "A",
+              "U"
+            ],
+            [
+              "AP",
+              "C"
+            ],
+            [
+              "AP",
+              "D"
+            ],
+            [
+              "AP",
+              "NS"
+            ],
+            [
+              "AP",
+              "O"
+            ],
+            [
+              "AP",
+              "U"
+            ],
+            [
+              "C",
+              "GS"
+            ],
+            [
+              "C",
+              "U"
+            ],
+            [
+              "D",
+              "GS"
+            ],
+            [
+              "D",
+              "NS"
+            ],
+            [
+              "D",
+              "T"
+            ],
+            [
+              "D",
+              "U"
+            ],
+            [
+              "EC",
+              "NS"
+            ],
+            [
+              "ED",
+              "FP"
+            ],
+            [
+              "FP",
+              "H"
+            ],
+            [
+              "GS",
+              "HEE"
+            ],
+            [
+              "GS",
+              "NS"
+            ],
+            [
+              "H",
+              "O"
+            ],
+            [
+              "H",
+              "U"
+            ],
+            [
+              "NS",
+              "T"
+            ],
+            [
+              "T",
+              "U"
+            ]
+          ]
+        },
+        "pc_a0.01_tier": {
+          "n_expert_edges": 40,
+          "n_discovered_edges": 42,
+          "skeleton_tp": 16,
+          "skeleton_precision": 0.38095238095238093,
+          "skeleton_recall": 0.4,
+          "skeleton_f1": 0.3902439024390244,
+          "shd": 53,
+          "orient_mismatch": 3,
+          "n_missing": 24,
+          "n_extra": 26,
+          "n_expert_vstruct": 85,
+          "n_discovered_vstruct": 46,
+          "vstruct_tp": 5,
+          "vstruct_precision": 0.10869565217391304,
+          "vstruct_recall": 0.058823529411764705,
+          "missing_edges": [
+            [
+              "A",
+              "MH"
+            ],
+            [
+              "AP",
+              "GS"
+            ],
+            [
+              "AP",
+              "PH"
+            ],
+            [
+              "C",
+              "H"
+            ],
+            [
+              "C",
+              "HEE"
+            ],
+            [
+              "C",
+              "MH"
+            ],
+            [
+              "D",
+              "EC"
+            ],
+            [
+              "D",
+              "ED"
+            ],
+            [
+              "D",
+              "H"
+            ],
+            [
+              "D",
+              "MH"
+            ],
+            [
+              "EC",
+              "H"
+            ],
+            [
+              "EC",
+              "HEE"
+            ],
+            [
+              "EC",
+              "MH"
+            ],
+            [
+              "EC",
+              "U"
+            ],
+            [
+              "ED",
+              "PH"
+            ],
+            [
+              "ED",
+              "U"
+            ],
+            [
+              "FP",
+              "MH"
+            ],
+            [
+              "GS",
+              "MH"
+            ],
+            [
+              "GS",
+              "PH"
+            ],
+            [
+              "H",
+              "PH"
+            ],
+            [
+              "HEE",
+              "U"
+            ],
+            [
+              "MH",
+              "NS"
+            ],
+            [
+              "MH",
+              "O"
+            ],
+            [
+              "MH",
+              "T"
+            ]
+          ],
+          "extra_edges": [
+            [
+              "A",
+              "AP"
+            ],
+            [
+              "A",
+              "GS"
+            ],
+            [
+              "A",
+              "HEE"
+            ],
+            [
+              "A",
+              "NS"
+            ],
+            [
+              "A",
+              "O"
+            ],
+            [
+              "A",
+              "U"
+            ],
+            [
+              "AP",
+              "C"
+            ],
+            [
+              "AP",
+              "D"
+            ],
+            [
+              "AP",
+              "NS"
+            ],
+            [
+              "AP",
+              "O"
+            ],
+            [
+              "AP",
+              "U"
+            ],
+            [
+              "C",
+              "GS"
+            ],
+            [
+              "C",
+              "U"
+            ],
+            [
+              "D",
+              "GS"
+            ],
+            [
+              "D",
+              "NS"
+            ],
+            [
+              "D",
+              "T"
+            ],
+            [
+              "D",
+              "U"
+            ],
+            [
+              "EC",
+              "NS"
+            ],
+            [
+              "ED",
+              "FP"
+            ],
+            [
+              "FP",
+              "H"
+            ],
+            [
+              "GS",
+              "HEE"
+            ],
+            [
+              "GS",
+              "NS"
+            ],
+            [
+              "H",
+              "O"
+            ],
+            [
+              "H",
+              "U"
+            ],
+            [
+              "NS",
+              "T"
+            ],
+            [
+              "T",
+              "U"
+            ]
+          ]
+        }
+      },
+      "fci": {
+        "fci_a0.01": {
+          "n_expert_edges": 40,
+          "n_discovered_edges": 37,
+          "skeleton_tp": 14,
+          "skeleton_precision": 0.3783783783783784,
+          "skeleton_recall": 0.35,
+          "skeleton_f1": 0.36363636363636365,
+          "shd": 61,
+          "orient_mismatch": 12,
+          "n_missing": 26,
+          "n_extra": 23,
+          "n_expert_vstruct": 85,
+          "n_discovered_vstruct": 76,
+          "vstruct_tp": 3,
+          "vstruct_precision": 0.039473684210526314,
+          "vstruct_recall": 0.03529411764705882,
+          "missing_edges": [
+            [
+              "A",
+              "MH"
+            ],
+            [
+              "A",
+              "PH"
+            ],
+            [
+              "AP",
+              "GS"
+            ],
+            [
+              "AP",
+              "PH"
+            ],
+            [
+              "C",
+              "H"
+            ],
+            [
+              "C",
+              "HEE"
+            ],
+            [
+              "C",
+              "MH"
+            ],
+            [
+              "D",
+              "EC"
+            ],
+            [
+              "D",
+              "ED"
+            ],
+            [
+              "D",
+              "H"
+            ],
+            [
+              "D",
+              "MH"
+            ],
+            [
+              "EC",
+              "FP"
+            ],
+            [
+              "EC",
+              "H"
+            ],
+            [
+              "EC",
+              "HEE"
+            ],
+            [
+              "EC",
+              "MH"
+            ],
+            [
+              "EC",
+              "U"
+            ],
+            [
+              "ED",
+              "PH"
+            ],
+            [
+              "ED",
+              "U"
+            ],
+            [
+              "FP",
+              "MH"
+            ],
+            [
+              "GS",
+              "MH"
+            ],
+            [
+              "GS",
+              "PH"
+            ],
+            [
+              "H",
+              "PH"
+            ],
+            [
+              "HEE",
+              "U"
+            ],
+            [
+              "MH",
+              "NS"
+            ],
+            [
+              "MH",
+              "O"
+            ],
+            [
+              "MH",
+              "T"
+            ]
+          ],
+          "extra_edges": [
+            [
+              "A",
+              "AP"
+            ],
+            [
+              "A",
+              "GS"
+            ],
+            [
+              "A",
+              "HEE"
+            ],
+            [
+              "A",
+              "NS"
+            ],
+            [
+              "A",
+              "O"
+            ],
+            [
+              "A",
+              "U"
+            ],
+            [
+              "AP",
+              "C"
+            ],
+            [
+              "AP",
+              "NS"
+            ],
+            [
+              "AP",
+              "O"
+            ],
+            [
+              "AP",
+              "U"
+            ],
+            [
+              "C",
+              "U"
+            ],
+            [
+              "D",
+              "GS"
+            ],
+            [
+              "D",
+              "NS"
+            ],
+            [
+              "D",
+              "T"
+            ],
+            [
+              "D",
+              "U"
+            ],
+            [
+              "EC",
+              "NS"
+            ],
+            [
+              "ED",
+              "FP"
+            ],
+            [
+              "FP",
+              "H"
+            ],
+            [
+              "GS",
+              "HEE"
+            ],
+            [
+              "GS",
+              "NS"
+            ],
+            [
+              "H",
+              "U"
+            ],
+            [
+              "NS",
+              "T"
+            ],
+            [
+              "T",
+              "U"
+            ]
+          ]
+        }
+      }
+    }
+  }
+}
