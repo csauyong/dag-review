@@ -1,0 +1,501 @@
+[00:00:03] ~CentralHse.305.(6).Bartlett: Okay, then I'll just go through the people online. So, Chun Sang, do you want to quickly introduce yourself?
+
+[00:00:10] Chun Sang Au Yong: Sure. Hi everyone, I am Shen Sung and I am currently working towards my PhD, which is mostly about home energy efficiency. I come from a computer science background. So like what I do mostly are like modelling and quantitative analysis. So it it is it is great to have your input today so that I can have some Like domain guidance into my into my research.
+
+[00:00:59] ~CentralHse.305.(6).Bartlett: Thanks, Chen Sang. Minnie.
+
+[00:01:02] Minnie Ashdown: Hi everyone, I'm Minnie. I am a research fellow in the Energy Institute. I work in the Smart Energy Research group and I've done projects about SAP and energy data. So I Broadly, do building physics work? Thanks.
+
+[00:01:25] ~CentralHse.305.(6).Bartlett: Uh, Ricci.
+
+[00:01:29] Ricci Yue: Hello, everyone. I'm Ricci, lecturer in Substable Resource Policy from the Institute of Substable Resource. So my research is basically behavioural economics, a little bit of social psychology as well. Thank you.
+
+[00:01:47] ~CentralHse.305.(6).Bartlett: Thanks, John.
+
+[00:01:51] Jonathon Taylor (TAU): Hello, I'm Jonathon. I'm a professor in urban physics at Tampa University in Finland. I spent many years working with Phil and Giorgos at UCL. And I have a background in building physics simulation and sort of housing stock modelling. I have not contributed to developing a DAG before, so I'm here, I think, to ask stupid questions. About the process, and yeah.
+
+[00:02:17] ~CentralHse.305.(6).Bartlett: Great, uh, Geisha.
+
+[00:02:20] Huebner, Gesche: Good morning, I'm Geisha. I'm Professor of Environment and Human Health at the University of Exeter and generally look at energy, built environment and health. I'm an original psychologist, so be interested in mental health and I'm also a former UCL colleague, so I know at least some of you.
+
+[00:02:38] ~CentralHse.305.(6).Bartlett: Thanks, Keisha, and nearly.
+
+[00:02:42] Niloofar Shoari: Hi everyone, my name is Niloofar. I am a senior research fellow at UCL based at Institute of Charles. I work on a project called Chile and we are looking at the health effect of school indoor quality, like air quality, temperature, thermal comfort, and also some building characteristic and how those affect children's physical health as well as mental health.
+
+[00:03:14] ~CentralHse.305.(6).Bartlett: Great, thanks everyone. So yeah, I'll hand back to Chun Sang now, who can go through, got a few slides sort of introducing the process, what he's been through so far, and then we'll go through sort of various components of the DAG in a bit more, well, in a bit more detail.
+
+[00:03:34] Chun Sang Au Yong: Great. Thank you, Phil. Today's session is a little is a little bit tight because we have a lot to go through within this 1 1/2 hours. So I will keep my I will keep my intro. Induction brief, and then we can go straight into the discussion on on the assumptions and also on on the. on the back itself. So without further ado, let's go into the. .. The contacts of this that this the that is actually is actually the. beginning of our two stage research. In the end, in the end,
+
+[00:04:35] ~CentralHse.305.(6).Bartlett: Okay.
+
+[00:04:38] Chun Sang Au Yong: we would like to look at the causal effects of Of of home of home energy efficiency on mental health, and and in order to achieve it, we have to 1st we have to 1st encode our causal assumptions into a. the DAC so that we can derive the minimal adjustment set for our data and for our data analysis. Therefore, we have to 1st We we have to 1st make sure that the tag is is encoding the correct relationships between the between the variables so that. we can ensure that the estimates in the end will also be accurate. So this is why this is why this is why we are all here because because any kind of any kind of Mistakes will flow the downstream, so it's good to have your input early so that we can we can work towards the data analysis in the end with with the correct. set of causal relationships. So, you may have seen the... The draught that shared previously on a on a website and it was actually developed based on the literature and also some some domain. Reasoning, however, it is not perfect because, as I, as I go through the, as I go through the literature, it is hard. It is hard to cover everything and I and I may have overlooked some important relationships or I may have exerted my own My own assumptions, so it is important for me. Uhh... To to validate it before using it in the data analysis later, yeah, so yeah, so to so today's workshop. It. Is here, so, so it is about it is about reconciling some of the some of the online comments we have, we have, we have received, and then and then... working towards the sign off, which I hope to complete by around mid-July, but we will talk about that later in the session as well. But here I would like to highlight That the DAG is built is built before before the the data, so we are not trying, we are not trying to, we are not trying to extract. Call causal causal. causal relationships from the data. Instead, we are trying to look at the literature and then we build the bag, which will be which will be used for the data analysis. So when building the deck, it is important to keep it, to like not get affected by the, by by the issues such as data availability, such as... Yeah, yeah, so that, yeah, so just try to forget that we are doing a data analysis after the fact development. So, so far we have received some pre-workshop feedback on the GitHub. Systems and. And we have, and we have, we have mostly been looking at the at the note, the definition, for example, some housing notes and some. Groups based notes as well, so we can talk about it later in the in in the sector by. It's like the discussion, and yeah, and also we have some discussion on the assumption as. As as as well, which is about the temporal dynamics of the back and which brings us. Yeah, so we will talk about assumptions very shortly. So that is where... That is where we can, we can, we can revisit some of these, some of... It is issues. I have also I have also written comments for the feedback on the. GitHub. So yeah, sorry for like replying. Sorry for taking so long for me to reply to the comments as well. It's my first time hosting this online. On online feedback system as well. So yeah, so thank you. So thank you for your comments and also for your patience in getting. my feedback. Yeah, so let's look at the whole tag for a minute before we go into the discussion on the assumptions. This is kind of, this is This is this is sort of a simplified.
+
+[00:12:46] ~CentralHse.305.(6).Bartlett: I.
+
+[00:12:51] Chun Sang Au Yong: version of the deck that you see on the interactive website. So basically we have the home energy efficiency here and there are mainly to there are mainly 2 mainly 2 pathways for for it to to affect mental health. First of all, it is the field poverty pathway. So It will so. It is about the stress of the energy costs, and then, yeah, and then it will flow into mental health. The other one is more about the quality of... of the indoor environment. So with high energy efficiency,
+
+[00:13:57] ~CentralHse.305.(6).Bartlett: No.
+
+[00:13:58] Chun Sang Au Yong: they should live, they should live more comfortably, which will. which will in turn affect the mental health. So, in our discussion later, it will be nice if you have the if you have the that by your side, so that You can refer to it whenever you want. So. Do you have any questions up till now? If not, we will go into the discussion on the assumptions. Yes, Ricci.
+
+[00:14:58] Ricci Yue: Thank you very much for the introduction to us. But can I quickly define what do you mean by mental health in the whole model? Do you refer particular to a particular state, a particular disorder or well-being?
+
+[00:15:13] Chun Sang Au Yong: Yes, um, so actually, um, we... We currently have two choices in into how in into how how how we are going to operationalize mental health and we have two data sets that. That. That we can use one of them is the depression prevalence, and and and the other one is this is this is the semi index, so. Phil, do you want to jump in and briefly
+
+[00:16:06] ~CentralHse.305.(6).Bartlett: Yes.
+
+[00:16:07] Chun Sang Au Yong: mention this?
+
+[00:16:11] ~CentralHse.305.(6).Bartlett: Yeah, so I've used both of these data in previous papers, and it comes from the place-based longitudinal data resource that Liverpool University have developed. And yeah, so we've either got depression prevalence, Or there's this SAMI index, which is a composite measure of sort of broader mental health, capturing both sort of depression, GP diagnosis, impacts on abilities to work and benefits related to mental health. But I think before going into the data, we're more just thinking of mental health in terms of well-being with more relation to sort of depression and anxiety rather than other conditions which would not be sort of symptomatic of stress, basically, or indoor environment factors.
+
+[00:17:32] Chun Sang Au Yong: Um... Do you want to talk about the dataset now or should we go back to this after talking about the edges and the assumptions? Or do you think that the causal relationships will change depending on depending on which mental health data set we are going to use.
+
+[00:18:06] ~CentralHse.305.(6).Bartlett: Yeah, I think so. We want to be more agnostic to what data set we used when developing the DAG. So I think we'll, should we go back to the DAG and the interactions and the various sectors of it before discussing the date, the end?
+
+[00:18:22] Chun Sang Au Yong: Mhm. Sure.
+
+[00:18:29] ~CentralHse.305.(6).Bartlett: Few.
+
+[00:18:32] Chun Sang Au Yong: Are there any other questions in the room or? Au. Are you happy to like revisit it afterwards?
+
+[00:18:46] Minnie Ashdown: I had a question, but we can come back to it.
+
+[00:18:48] Chun Sang Au Yong: Mm.
+
+[00:18:49] Minnie Ashdown: It's possible you're going to cover it soon. It's just about what is the relationship between physical and mental health. I can't quite see on the DAG, but also otherwise. How are we assuming that relates?
+
+[00:19:04] Chun Sang Au Yong: Mm. Yeah, so physical health is about the... Um... So, it's mostly about the physical conditions of the person, and... And right now, we are encoding that physical health will affect mental health, but not, but not. The other way around, because we have to, we have to maintain this, um, um, a cyclicity, um. In the graph, so we are only encoding the. The main the main causal flow, which is from the which is from the physical health to the mental health, and if you want to look at it on the interactive graph, then there will be more. Then there will be more, more explanations, and...
+
+[00:20:23] ~CentralHse.305.(6).Bartlett: What?
+
+[00:20:23] Chun Sang Au Yong: And yeah, it's clear there. Nagoor.
+
+[00:20:31] Niloofar Shoari: Um, yeah, um, I think one of my... issues with this tag is I think some of these paths, they are bidirectional.
+
+[00:20:35] ~CentralHse.305.(6).Bartlett: What?
+
+[00:20:39] Chun Sang Au Yong: Yeah.
+
+[00:20:40] Niloofar Shoari: Or if you want to make it like unidirectional, you have to make pretty strong assumptions. Like you have, like I'm looking at the interactive version of it, so I don't know if it's exactly the same as this one, but you have a...
+
+[00:20:56] Chun Sang Au Yong: Min.
+
+[00:20:57] Niloofar Shoari: I have an arrow going from substance abuse to mental health, but it can pretty much be the other way. It can be like mental health then that leads to substance abuse or any other like isolation. So These are some strong assumptions that I don't tell, I'm not saying that you have to consider all of these, but...
+
+[00:21:22] Chun Sang Au Yong: Mhm.
+
+[00:21:25] ~CentralHse.305.(6).Bartlett: Yes.
+
+[00:21:25] Niloofar Shoari: I think you need to be clear about that when it comes to writing the paper.
+
+[00:21:32] Chun Sang Au Yong: I see. Yeah. Thank you, Niloofar, for your comments,
+
+[00:21:36] ~CentralHse.305.(6).Bartlett: Yeah.
+
+[00:21:39] Chun Sang Au Yong: and it is and it is it is something that I that I haven't I haven't really. That I have thought about, but I haven't really come up with a... great solution because for now I am only building this tag based on the literature and I was hoping that the literature will provide me enough Uhh... Enough proof for the directional relationship, but I'm sure that for the causal for the causal relationship flowing in in in the like in the reverse. direction, there will also be, there will also be literature about that as well. So it's hard to... It's hard to draw a concrete conclusion just based on the literature, yeah. Phil.
+
+[00:23:06] ~CentralHse.305.(6).Bartlett: Yeah, for the bidirectional relationships, would the solution be to do an alternative DAG as a sensitivity test with the arrow pointing in the opposite direction?
+
+[00:23:27] Chun Sang Au Yong: I think we can try and also... Are you talking about reversing all the edges or just or just the edges in concern?
+
+[00:23:44] ~CentralHse.305.(6).Bartlett: Yeah, just the ones where you got evidence of bi-directional relationship.
+
+[00:23:50] Chun Sang Au Yong: Mm. I think we can think about it, but I'm not sure what kind of sensitivity tests or what kind of metrics we can operate on. On the the DAC without the data, because.. . Because if we were to use... This back then I can then I can derive the minimal adjustment size and then I can apply sensitivity test onto this adjustment size and. If I could prove that after... after adjusting for the variables within the set, and there are no more unmeasured confounding or correlation, then would it be enough? on its own without actually having another reversed the back.
+
+[00:25:15] ~CentralHse.305.(6).Bartlett: Yeah.
+
+[00:25:24] Chun Sang Au Yong: Yes.
+
+[00:25:27] ~CentralHse.305.(6).Bartlett: Yeah.
+
+[00:25:27] Chun Sang Au Yong: Yeah, but we can look at the. Direction of the of the edges and try to prove that. What we have is... Correct, yeah. Any other questions? Should we move on to the assumptions? I presume that there will also be a lot of... a lot of comments here because Yeah, so, um... Here, here we have a list of assumptions, but they are by they are by they are by no means exhaustive, so. Feel free to propose to propose. more assumptions and we can add it on the list. So here I am, here I am ranking them from the from the easiest to tackle. to the hardest. So, for example, if we were to talk about the, if we were to talk about the time order, the temporal precedence, then we can. Well, we we can actually just and just enforce it when when when we are operationalize saying the. The the DAC in in the. Data analysis, so, for example, we can just use home energy efficiency data before. Before the before the year of the mental health data set, so we can we can enforce this condition. However, for the others that are harder to that are harder to. To enforce, we will have to look at, um, we will have to actually. assume them. For example, we have to assume that there are no build over between the areas when we go into the data analysis. And We also have to assume that all every kind of area could have could have any value of the of the home energy efficiency, so. Yeah, so basically, here are the list of assumptions. Are there? Are there any? Are there any? any one of them that you want me to go into it deeper or are there anyone that you think we are assuming too we we are assuming too too much. Or do you think that I am I am missing something? Yes, Ricci.
+
+[00:30:01] Ricci Yue: Um...
+
+[00:30:12] Chun Sang Au Yong: Mhm.
+
+[00:30:20] Ricci Yue: Might take a year to, I mean, to develop, so how, how, how, how do you account for that?
+
+[00:30:28] Chun Sang Au Yong: I think, um... I think it is. Um... Yeah, I think because our research is about home energy efficiency to mental health, so So, naturally, naturally, we we we would have already assumed or high or high or or hypothesised that that there is a. Causal relationship between the between the between the two, however, I think.
+
+[00:31:19] ~CentralHse.305.(6).Bartlett: Che.
+
+[00:31:28] Chun Sang Au Yong: When it go to... depression and it is a lot. Um, then it is a much stronger assumption because depression is... Is is is something clinical and there are a lot of these stress. Stress factors that comes into this, um, that comes into this. variable. So I think I daily we are trying to keep it just to the wellbeing level that Phil has mentioned, but if, but, but if the data set. Doesn't allow us to. To do that, then I think we have to kind of pivot into the into using the semi index, which is more about the well-being side, rather than just ******** clinical. Depression. Um... Jonathon.
+
+[00:32:52] Jonathon Taylor (TAU): Yeah, perhaps this is kind of captured in #5, but I guess an assumption would be that these improvements in energy efficiency are done in a suitable manner, like with, you know, if you're making things more airtight, you're also providing additional purpose provided ventilation or the installation is being done in a way where there's no risk of like increasing the down problems or something like that. I think my point is that you know, it could, an intervention which makes a building more energy efficient should in theory have a net benefit for the occupant's health. But if it's done, improperly, which would not get, I think, captured by a change in the EPC rating, then it could be detrimental. And we don't really know. I guess the assumption is on average, they're done appropriately. Is that correct?
+
+[00:33:59] Chun Sang Au Yong: Yeah. How? However, I think. If we are to assume this, then we are then. Then, then we are to own, then we are to only estimate, then I mean. We will be assuming that the... the final estimated causal effect will be positive, like every single, every increase in the home energy efficiency will lead to... Better mental well. Being, but I think we are going too far to restrict this, because, because, as you said, there, there, there might be, there might be, there might be. improperly installed home energy efficiency improvements. So, so it, so it might actually lead to worse Worse, worse mental health. Well... It being so, um, yeah, personally I don't think think we should assume that. Niloofar.
+
+[00:35:51] Niloofar Shoari: Could you explain a little bit how you see like these EPC? Like exposures, if you want to define it at LSOA level,
+
+[00:36:06] Chun Sang Au Yong: Mhm.
+
+[00:36:06] Niloofar Shoari: like, is it an average? Like, how, how, how do you, how do you measure it?
+
+[00:36:15] Chun Sang Au Yong: Yeah.
+
+[00:36:15] Niloofar Shoari: I'm asking because, so... EPC, if I remember correctly, you have a certificate when you sell the property. So then you have to have the EPC certificate. So if there is a property that hasn't been sold but has gone through retrofit or I don't know, any kind of intervention to improve EPC, that wouldn't show up. I can't picture it, you know, in terms of how you define it and also
+
+[00:36:54] Chun Sang Au Yong: Yeah.
+
+[00:36:55] Niloofar Shoari: the timing order of your exposure.
+
+[00:37:00] Chun Sang Au Yong: Yes, so basically we are taking the...
+
+[00:37:06] ~CentralHse.305.(6).Bartlett: Play.
+
+[00:37:06] Chun Sang Au Yong: The average of the UPC. ratings in an area. SS. The exposure, and you are right that the UPC, the UPC certificate is only is only is only issued. When it when the property is is rented out or when it is or when it is sold, so. So, yeah, we will have to assume that We will have to assume that this bias exists rather uniformly across all the
+
+[00:38:11] ~CentralHse.305.(6).Bartlett: Yeah.
+
+[00:38:16] Chun Sang Au Yong: areas in order for us to really Make use of the home of the home energy efficiency ratings. Yeah, um, uh, Daijia.
+
+[00:38:35] Huebner, Gesche: Yeah, thanks. I just wanted to quickly pick up on Jonathon's point, because I couldn't quite understand your answer. I just wanted to summarise it. So I think Jonathon suggested that one of your key assumptions is that the retrofit was done well and was successful, right? And I guess that's
+
+[00:38:53] Chun Sang Au Yong: Mhm.
+
+[00:38:54] Huebner, Gesche: currently not one of your key assumptions, but in order to see a positive or like a mental health impact, you would have to assume that it was done well. And I couldn't quite understand your answer. That was one question. The other question is more a question
+
+[00:39:06] Chun Sang Au Yong: Mm.
+
+[00:39:09] Huebner, Gesche: because I'm not quite clear when you say Do you assume that any EPC band change is equal? As in, do you assume that going from C to B has the same mental health impact than going from D to C or going from up from G or something like that? Or
+
+[00:39:32] Chun Sang Au Yong: Mm.
+
+[00:39:32] Huebner, Gesche: Because obviously there might be a question for later, because it might more relate to how we analyse it. But I guess my question is, do you have an assumption around whether each step change will have an equal mental health impact? Or so basically it's like a linear relationship, right? Or do you assume that there are different step changes and how different EPC band changes impact? So I know this was two questions. Um, but yeah, those were the two quick points of
+
+[00:39:56] Chun Sang Au Yong: Mm.
+
+[00:39:59] Huebner, Gesche: entries.
+
+[00:40:01] Chun Sang Au Yong: Yes, yeah, I think. I think I misunderstood Jonathon's question previously because I was I was I was thinking about the. the retrofit itself, but not the DPC. Rating. So yes, I think I think here I I think I am actually assuming that a higher a higher EPC rating if if it would mean. Ah. Better home, better home, better home energy efficiency, because. Despite of the improper, despite of the improper installation, because there are no ways for me to actually track the... The improper installations, so I think it is important for for for me to assume that, and for the other. For the other question. Um...
+
+[00:41:38] ~CentralHse.305.(6).Bartlett: Chun Sang, can I just jump in on John's point? Yeah,
+
+[00:41:40] Chun Sang Au Yong: Oh, oh, yes, yeah, sure. Yes, yes.
+
+[00:41:43] ~CentralHse.305.(6).Bartlett: so I suppose the causal relationship doesn't actually specify whether it's a positive or a negative impact. And I think further along the line, we'll try and choose machine learning models which allow for non-linearity, so they could potentially take into account these factors. But yeah, as Chun Sang was saying, we don't know whether the insulation was done correctly or not and whether the additional ventilation was installed. So it should Well, the pathway from home energy efficiency to fuel poverty, that one should, unless something's gone really badly wrong, that one should always result in a positive impact, whereas the one via home energy efficiency to indoor environmental quality may be positive, maybe negative. And it's harder for us to know which way that one goes. One thing I was maybe thinking, because I think the understanding of the home energy efficiency interventions has improved and there is now more consideration of ventilation. maybe than there was before, is that you could potentially look at home energy efficiency measures which were done further into the past, which maybe weren't done as well with the ventilation compared to more recent ones, which hopefully have been done better with the ventilation included. But that's just a thought and I'm not sure whether it's operational with the data that we have available. Chun Sang, back to you.
+
+[00:43:35] Chun Sang Au Yong: Yes, going back to Geisha's question on the linearity, I think yes, we are also, we are also assuming, we are also assuming that home energy efficiency.
+
+[00:43:56] ~CentralHse.305.(6).Bartlett: Ohh.
+
+[00:43:59] Chun Sang Au Yong: Oh. Ratings, they are linear, they are linear on its own,
+
+[00:44:00] ~CentralHse.305.(6).Bartlett: Okay.
+
+[00:44:08] Chun Sang Au Yong: so like once that of the rating, it would mean once the app into, I mean, yeah. Going from... B to C will be the same as going from. from any other ones that in the scale. But, but, um, but we can also... do something about this in the modelling if you think that we are assuming too much because I could just assign like certain ways to the home energy efficiencies scale. So We can scale, yeah, we can, we can change it up, yeah. But in. But, um, but it will be quite hard to define the transformation without... without literature support. But I think we can, but it is something that we can think about. Yeah. So any other questions here? If not, we can go into talking about the nodes and edges in each sector.
+
+[00:45:54] Minnie Ashdown: I just had one question, which is, have you defined somewhere what all of
+
+[00:45:54] Chun Sang Au Yong: Um, yeah, yes.
+
+[00:45:59] Minnie Ashdown: these variables mean in a sort of quite careful way that implies exactly what is measured and how they should be interpreted?
+
+[00:46:09] Chun Sang Au Yong: Um... I, I have the definition of the of the of the. Of the... Variables, but I haven't, but I, but I haven't had, um, like... I haven't had. All of their all of their measurements, because... Because what I had in mind was like, I... I only have to have data for the minimal adjustment set, because actually I don't have to operate on the other variables. So in that case, I only have the measurements and the data set for the for the variables in the minimal adjustment sets, but... But not all the but not all the variables.
+
+[00:47:27] Minnie Ashdown: The only reason to make sure that you have, I think regardless of whether you've got data, you probably need something quite specific about what each of the variables
+
+[00:47:37] Chun Sang Au Yong: Min.
+
+[00:47:39] Minnie Ashdown: means, because that will probably influence the direction of the edges and all this sort of. stuff and it's just quite helpful for interpretation.
+
+[00:47:51] Chun Sang Au Yong: True. Thanks for the advice, Ricci.
+
+[00:47:59] Ricci Yue: Let me build on Minnie's comment, because let's say I see one of the variables is isolations. I actually don't know what isolation mean. Do you mean like loneliness? Because I think in UK we got the LSA 08 data on loneliness, but. I mean, isolation could also mean like a spatially like isolated area. You are kind of like measuring the populations of the or density of building. I don't know. I actually don't know what means by isolations. But if you can clearly define all these variables, it definitely will help you find the right data.
+
+[00:48:43] Chun Sang Au Yong: Yeah, let me go to the... That and. I'm not sure if the current definition are. Clare enough, but I have. But I have defined something like this, for example, isolation. Um... Not sure why it's not showing. Au. Oh, I see. Oh, okay. So I think there are something missing here because Oscillation, yeah. I think I had this note table that I have developed with all the definitions. Written up so and and it should have been encoded in the website as well, so. I'm afraid that I have... I have made a implementation implementation mistake as to yeah I left out those the definition so I will definitely update the website and Have it fixed and have it put online, so that, so that in the final round of the reveal, the... um um Yeah, you can decide on the on the causal relationships. Sorry about that. Yes, so right now, should we go into the should we go into the sector by sector reviews?
+
+[00:51:07] ~CentralHse.305.(6).Bartlett: Yeah.
+
+[00:51:07] Chun Sang Au Yong: Okay, let's move on to the... Oh, sorry, Phil, were you saying sometime? Okay,
+
+[00:51:16] ~CentralHse.305.(6).Bartlett: No, yeah, we can keep going.
+
+[00:51:18] Chun Sang Au Yong: okay. OK, great. Yeah, so in each of the in each of the sectors here, we we just have a few questions to ask. We want to hear the assumptions mean The edge, the edge evidence, so is so, so it's about the literature and our domain. reasoning and also do you think that anything is missing or do you think that Orr. How or how confident are you with the edges, and I know that we are quite, we are quite, we are quite short on time, and and and we also have a lot of... Out the ending questions, so. Don't worry, because, because although we cannot solve everything, we cannot solve everything in this workshop, we can all we can always go back to the to the. To the online comments and look at the and propose. Proposed new proposed new comments over there, so yeah, so let's just go into each of the sectors here. So first of all, we have the core pathway, which is from home energy efficiency to mental health. And you may already be familiar with the evidence here, which are which are which are basically a summary of the Ash tables. Do you think that the assumptions are correct or do you think that anything is missing? Yes, Daijia.
+
+[00:54:08] Huebner, Gesche: I was wondering for the first one, whether you also need, whether you're missing a pathway via physical health, because if indoor environmental quality impacts on physical health, such as lower prevalence of asthma attacks or less severe asthma attacks, that then in turn has... Impact on mental health, but so it's not, I think there's that can happen. indirect way and I couldn't quite see on your graph if you had that there. I couldn't see it.
+
+[00:54:38] ~CentralHse.305.(6).Bartlett: Okay.
+
+[00:54:39] Chun Sang Au Yong: Yes, I think, let me look at the website again.
+
+[00:54:40] ~CentralHse.305.(6).Bartlett: Wu. Yeah, I think if there is.
+
+[00:54:47] Chun Sang Au Yong: Yeah, I think it's there, but it's just not highlighted like that. So home energy efficiency to IQ and then IQ also affects physical health. So actually there is a path. there, but it just wasn't highlighted in the image, yeah. Nalu.
+
+[00:55:20] Niloofar Shoari: So, I think, like, whenever you refer to a IOE Q, your example is a pollutant. So, are you referring to air quality?
+
+[00:55:39] Chun Sang Au Yong: Air quality is just one of the... It's just one of the factors in the IQ, but we are also talking about about temperature, about humidity as. As as well, so general indoor conditions.
+
+[00:56:08] Niloofar Shoari: Okay, yeah, because I tell you one of the things
+
+[00:56:09] Chun Sang Au Yong: Yeah.
+
+[00:56:12] Niloofar Shoari: we're missing was thermal comfort. Yeah, but I think it's fine unless something
+
+[00:56:14] Chun Sang Au Yong: Mm.
+
+[00:56:19] Niloofar Shoari: happens, you know, when we go further reviewing the DAC,
+
+[00:56:19] Chun Sang Au Yong: Mm.
+
+[00:56:23] Niloofar Shoari: then you need to separate them, have something like thermal comfort. And something like indoor.
+
+[00:56:30] Chun Sang Au Yong: Mm. Yeah. Phil actually previously previously suggested that a part. Apart from the main. The the tag I can also zoom in on, I can also zoom in on on on IQ and each of its components so that we can have a more detailed under. Dranding of this variable. We can, I can supplement this in the second round of comments. Are there any other questions?
+
+[00:57:29] ~CentralHse.305.(6).Bartlett: Yeah, see, there's a comment in the chat about noise being EQ.
+
+[00:57:37] Chun Sang Au Yong: Yes, let me look at the chat. But basically, noise is noise here is about External noise, so it will so. As of now, it should have... It should have an ash going to I. IQ, because in the noise is is also part of the IQ variable, so the External noise will affect the in the will affect. The in-door noise. The.
+
+[00:58:35] ~CentralHse.305.(6).Bartlett: That's the only thing is because we've got external noise,
+
+[00:58:36] Chun Sang Au Yong: So.
+
+[00:58:39] ~CentralHse.305.(6).Bartlett: it's probably similar for external air pollution, but we don't do it for air pollution. So maybe we just need some consistency with that one.
+
+[00:58:49] Chun Sang Au Yong: Okay, I said I see. Aisha.
+
+[00:58:54] Huebner, Gesche: Can I just quickly ask, probably have it on there, I missed it. So for the impact of fuel poverty, right, so you assume a direct effect via kind of
+
+[00:59:02] Chun Sang Au Yong: Yeah.
+
+[00:59:04] Huebner, Gesche: easing financial strain, right? But you could again also argue that fuel poverty Because if basically if people keep home, if homes are warmer, you'll also have less damp and mold, right? So is there just, is the indirect link just as important? And then, because I'm not quite sure if these are only direct links and not the indirect ones, because I guess you could argue fuel poverty impacts in the environmental quality, which then impacts the mental health. which is the second angle, because one of course, affordability, one is the improvement in that, because if you have the warmer home, obviously it impacts on the issues around damp. So I just wanted to ask, because I hadn't realised you could click on the graph, so nice to see that. But do you have that in there? The indirect link, like, via via IQ.
+
+[00:59:54] Chun Sang Au Yong: I think currency fuel poverty that does not link to IEQ itself,
+
+[00:59:57] ~CentralHse.305.(6).Bartlett: Yes.
+
+[01:00:02] Chun Sang Au Yong: but home energy efficiency will. So the indirect link, I think we can add it, yeah. Yeah, but. Sorry, but sorry if I miss it. So what is the indirect link? Okay. Hmm.
+
+[01:00:36] Huebner, Gesche: I say where you already coded this because you have a directing from home energy efficiency to the IAQ and you think it covers, that's fine.
+
+[01:00:42] Chun Sang Au Yong: Mm.
+
+[01:00:43] Huebner, Gesche: I just wanted to clarify that. So, you know, if you say, no,
+
+[01:00:44] Chun Sang Au Yong: Assess it.
+
+[01:00:46] Huebner, Gesche: you only have it by that, that's fine.
+
+[01:00:49] Chun Sang Au Yong: Thank you. Okay. Thanks for the comments. Shall we move to the next sector if it's okay with everyone? OK, the next one is about some some upstream variables. Here we here we are talking about the economic. capital and also education and demographics as well. Yes. Okay. Yes, Jonathon.
+
+[01:02:12] Jonathon Taylor (TAU): Yeah, so for the first point, upfront capital, my understanding is that In the UK, in many areas, social housing has higher, has had higher rates of retrofit because local councils have invested in the energy efficiency. So you do kind of see trends where lower income households perhaps have more, live in more energy efficient. So, you start with kind of... a bias that might be kind of contrary to what you might otherwise. expect. I think there's a, I had a comment about the maintenance stuff and I think you responded to it, but I can't quite remember how, but things like, you know, when we were looking at the working extract fans and kitchens in the English housing survey, there was quite a stark difference between the households that had working extracts and by kind of income group of the household income. And I think that's kind of related to the ability to, you know, if something goes wrong, you do need the capital usually to be able to pay to have it fixed. And maybe if you're in a rented home, you don't even have necessarily the power to make sure that that happens. So I think there's You know, some, you know, a couple of issues there that that could be could be interested related to maybe the first point there and then the last point.
+
+[01:03:51] Chun Sang Au Yong: Yeah, thank you. Thank you for the comment. Yeah, I think in regarding the social housing,
+
+[01:04:04] ~CentralHse.305.(6).Bartlett: Wu.
+
+[01:04:05] Chun Sang Au Yong: We will include a... We will include a variable about the. about the channel. Of the housing, so hopefully it. It should be controlled for, and yeah.
+
+[01:04:26] ~CentralHse.305.(6).Bartlett: Shih. Ohh.
+
+[01:04:33] Chun Sang Au Yong: Keisha.
+
+[01:04:36] Huebner, Gesche: Kind of related to this, and I, and that's probably an ideological issues,
+
+[01:04:38] Chun Sang Au Yong: Yeah.
+
+[01:04:41] Huebner, Gesche: but for example, I would always consider tenure as a socio-demographic variable, whereas I think you have it as a building
+
+[01:04:47] Chun Sang Au Yong: Ohh.
+
+[01:04:48] Huebner, Gesche: variable, because I guess you could argue, well, you know,
+
+[01:04:48] Chun Sang Au Yong: Yeah.
+
+[01:04:51] Huebner, Gesche: it's a variable that is in a way inherent to the occupant, because when they could become from a private renter, a homeowner, they can move. from social housing to private housing or the, you know. So, and I think if you included tenure as a socio-demographic variable, it obviously would have an impact here. And so, this is not about the pathways you have, but just about whether how you classify tenure, which I often would which I would treat as a social demographic variable and hence kind of have in this sector here.
+
+[01:05:26] Chun Sang Au Yong: I see, I see. Yeah, I will consider that, yeah, and because from the from the modelling point of view, both both the demographics and the and the housing characteristics. they will be in the, they will be in the adjustment set. So eventually it is something that we have to be adjusting for. So yeah, I will consider about Moving the the definition and um and um making it more precise, yeah. We still have 3 sectors to look at before discussing about the mental health data set. So shall we go to the next sector first? The next one is, um, not is, uh... Yeah, it's the... Um, how Sang? If they are the housing. Variables, so. I know that we have talked about tenor being a social, being a demographic variable, but yeah. Is there anything missing here or anything to add?
+
+[01:07:20] Minnie Ashdown: Is education the level of education achieved? Like, do they have a first degree or GCSEs or that kind of thing? And if so, maybe that would come in here. or it would be related to... the housing characteristics or tenure.
+
+[01:07:48] Chun Sang Au Yong: Hold on, um, were you talking about education?
+
+[01:07:53] Minnie Ashdown: I was just wondering how education is defined. Is it the level of education of,
+
+[01:07:54] Chun Sang Au Yong: Sure.
+
+[01:08:01] Minnie Ashdown: say, the lead occupant?
+
+[01:08:06] Chun Sang Au Yong: Oh, um, yes, so, um... For the education, again, because we are, again, we are operating on the area level, so we are taking the average, the average education attainment. In. Da air in the. In the area, so we are not locate in. Into specific dwelling and the occupants.
+
+[01:08:52] Minnie Ashdown: And do you think, I mean, maybe this is my own biases, but does that also correlate with other variables in the housing and tenure sector?
+
+[01:09:07] Chun Sang Au Yong: Yeah, so education currency, we are not, we are not encoding any any direct relationships to housing, but it will operate through The economic. Capital towards the Hosseini.
+
+[01:09:33] Minnie Ashdown: Okay.
+
+[01:09:34] Chun Sang Au Yong: Yeah. Do you think that we are missing a direct edge?
+
+[01:09:44] Minnie Ashdown: So economic capital. Covers it, I think. Good, yeah.
+
+[01:09:50] Chun Sang Au Yong: Okay, great. If there are no more questions here, then I will go to the next sector. This one is about the. More spatial variables, some. some surrounding variables.
+
+[01:10:46] Minnie Ashdown: Can I ask another question?
+
+[01:10:47] Chun Sang Au Yong: Yes.
+
+[01:10:49] Minnie Ashdown: These sectors. Um, do they relate to the... adjustment set or are they sort of ways that you're thinking about grouping variables just for the ease of discussing them today?
+
+[01:11:06] Chun Sang Au Yong: Yeah, I just... Just, uh, just... Just for the ease of the discussion is is not affecting the. Dag in anyways.
+
+[01:11:22] Minnie Ashdown: I see, okay.
+
+[01:11:24] Chun Sang Au Yong: Jonathon.
+
+[01:11:31] Jonathon Taylor (TAU): So I seem to, I think that, you know, maybe there's something to do with. with neighbourhood level housing density that they could have an impact on.
+
+[01:11:39] Chun Sang Au Yong: Mm.
+
+[01:11:44] Jonathon Taylor (TAU): mental health through, for example, the amount of noise if you live in
+
+[01:11:47] Chun Sang Au Yong: Yes.
+
+[01:11:48] Jonathon Taylor (TAU): particularly dense housing. But I also seem to recall reading a paper a while ago that was looking at people's sense of loneliness or isolation in dense areas with dense housing,
+
+[01:11:58] ~CentralHse.305.(6).Bartlett: I.
+
+[01:12:01] Jonathon Taylor (TAU): thinking that the population turnover is much higher in areas where you have a lot
+
+[01:12:04] Chun Sang Au Yong: Mm.
+
+[01:12:07] Jonathon Taylor (TAU): of studio flats. For example, people move in, they don't stay particularly long and it's harder to form sort of a sense of community or have the consistency of You know, neighbours that you recognise and know, and then I think maybe there might be a pathway there that that you're not quite. necessarily identifying. I don't know whether it would be a major issue, but...
+
+[01:12:32] Chun Sang Au Yong: I think it's a very good point, because I haven't thought about... The I haven't thought about the housing level. density much. I have only thought about the type of... The type of properties that the type of properties that people.
+
+[01:12:55] ~CentralHse.305.(6).Bartlett: What?
+
+[01:13:03] Chun Sang Au Yong: People live in, and... and I have included it as a housing characteristics, but I think the density itself, it will be important too. I think I can think of ways to I can think of ways to encode this either through changing the definition. Of. Of certain nodes, or actually adding a new nodes, because yeah, I think that might be something that I have overlooked. Thank you for the suggestion.
+
+[01:13:50] ~CentralHse.305.(6).Bartlett: Mm.
+
+[01:13:54] Chun Sang Au Yong: Nalu.
+
+[01:13:56] Niloofar Shoari: Just looking at your tag, so you have an arrow from accessibility to mental health. I think you need to add also one from
+
+[01:14:06] Chun Sang Au Yong: I.
+
+[01:14:06] Niloofar Shoari: accessibility to physical health.
+
+[01:14:09] Chun Sang Au Yong: Mm. Oh, um... About. That, that, um, I think, um, I think... This relates to my to my mistake in.
+
+[01:14:28] ~CentralHse.305.(6).Bartlett: The.
+
+[01:14:31] Chun Sang Au Yong: in providing the note, the definition, because accessibility here means the distance to the social infrastructure in the area. For example, the distance to the GP or things like that. Do you still... But I think surely the distance to GP will also affect physical health. Is that what you mean?
+
+[01:15:10] Niloofar Shoari: Yeah, but like in terms of mental health, like I was doing some environmental exposure in relation to mental health. And one of the factors that like I wanted
+
+[01:15:18] Chun Sang Au Yong: Mm.
+
+[01:15:24] Niloofar Shoari: to adjust for was, you call it accessibility, but I call it like availability. of mental health services. So they are some areas, for example,
+
+[01:15:34] Chun Sang Au Yong: Mm.
+
+[01:15:36] Niloofar Shoari: in suburban areas, they are not lots of mental health services. So that affects people health seeking behavior. So that was my thinking, like for accessibility, I thought. You meant like availability of service provision.
+
+[01:16:00] Chun Sang Au Yong: I see, I see. Yeah, I will think about it and add Dariush
+
+[01:16:05] Niloofar Shoari: I think that's, if that's something that you might
+
+[01:16:06] Chun Sang Au Yong: accordingly.
+
+[01:16:10] Niloofar Shoari: consider adding if the availability or provision of service,
+
+[01:16:12] Chun Sang Au Yong: Mm.
+
+[01:16:15] Niloofar Shoari: it's not equally distributed across the country.
+
+[01:16:19] Chun Sang Au Yong: Mm. Thank you. Let me go on to the next. The next and final sector, which is about the climate, urbanicity and the policy. So these are the macro Variables.
+
+[01:16:42] ~CentralHse.305.(6).Bartlett: Mhm.
+
+[01:17:03] Minnie Ashdown: I wondered what time, what the time dimension is doing here and how these variables map onto variables that operate on shorter time windows. How does that work?
+
+[01:17:21] ~CentralHse.305.(6).Bartlett: Yeah, I saw your point in the chat.
+
+[01:17:21] Chun Sang Au Yong: Yeah. Filter.
+
+[01:17:26] ~CentralHse.305.(6).Bartlett: Yeah, it's a tricky one because I'm not sure how you would define the time element within a DAG, but obviously you need to think about that when you come to selecting what data you're using. Um...
+
+[01:17:40] Minnie Ashdown: Exactly, that's why I was thinking.
+
+[01:17:42] ~CentralHse.305.(6).Bartlett: Yeah, with the day, you're not really prescribing time. I guess you are implicit. Yeah, you're implying one thing causes the other, but I don't think the time. I think you kind of,
+
+[01:17:54] Minnie Ashdown: Yeah.
+
+[01:17:58] ~CentralHse.305.(6).Bartlett: you're implying that assumption in when deciding how the scope of the DAC and what that captures. So is that, is that the impact you're trying to capture on an? you know, daily impact on something versus over, you know, many months or years. I guess that's how I think about it. Minnie, did you have any thoughts on maybe the, you know, the better use of time here?
+
+[01:18:30] Minnie Ashdown: Well, my first thought was to, as you say, be specific about what time window you're looking at, because obviously, as you also said, over a day, the effects are going to be very different to the effects over several years and the causal relationships may or may not exist on different time scales.
+
+[01:18:50] ~CentralHse.305.(6).Bartlett: Yeah, of course.
+
+[01:18:52] Minnie Ashdown: And also the data that you choose will also come into play here. And also you may be able to eliminate some confounders in that way.
+
+[01:19:05] ~CentralHse.305.(6).Bartlett: Mhm.
+
+[01:19:05] Minnie Ashdown: by thinking about what time dimension you're operating in. And. Because you might have something that happens one variable time one. and then an variable again at a different time. So this again will impact the structure of the DAG. And you may have different relationships in forming those variables at different times.
+
+[01:19:31] ~CentralHse.305.(6).Bartlett: Yeah, no, I fully agree on the on the importance there, and it can really it can change the DAC, that's what that's what I meant to say implicitly. I guess we we we well we need to be explicit about the time and then that that will alter the DAC structure accordingly.
+
+[01:19:48] Minnie Ashdown: And it will help you define the variables as well.
+
+[01:19:56] Chun Sang Au Yong: Aisha.
+
+[01:19:58] Huebner, Gesche: I guess I have a question with the first one. So I can see how climate impacts housing, IAQ and mental health, but how does climate affect home energy efficiency directly? Maybe, maybe we different understand what efficiency means, but I don't, I don't quite see that link.
+
+[01:20:18] Chun Sang Au Yong: Um. From the literature, I found that. Um... If an area is has more extreme time.
+
+[01:20:28] ~CentralHse.305.(6).Bartlett: Well...
+
+[01:20:36] Chun Sang Au Yong: temperatures, people, people, people would tend to install more. More energy, more energy efficient. Um... things to keep their house warm or keep their house cool in the summer. So I think that is one of the things. the incentive for people to carry out retrofits.
+
+[01:21:11] Huebner, Gesche: And is that even the case in like within the UK, which has a, I mean, I can definitely see that why like Canada would, why, you know, the climate from Canada would have different impacts than the climate from Spain, for example. But is that the case within the UK, that within the UK, people in Scotland do more retrofits? To keep the house warm than people in the Southwest, for example.
+
+[01:21:37] Chun Sang Au Yong: You're right. I haven't thought about this. I think... We can revisit that edge and and and and remove it and remove it accordingly. Jonathon.
+
+[01:22:03] Jonathon Taylor (TAU): Yeah, I think the first point is very much related to temperature, I suppose. And I'm wondering about like one of the, what I think would be a big driver for mental health would be having a damp and mouldy home. So maybe it's worth thinking also about areas with driving rain. presumably areas with driving rain will be more prone to moisture damage or something like that and may have... higher instances of damp homes. I'm not sure that's reflected in reality, but maybe.
+
+[01:22:37] Chun Sang Au Yong: Yeah, yeah. Thanks for the comments. We will look into the... the literature and to see if we can, if we can include that. Ricci.
+
+[01:23:00] Ricci Yue: About climate also, I'm not sure if that also includes some of the geographical factors, I suppose, like the coastal area. I mean, I'm more vulnerable, but I don't know whether they are
+
+[01:23:13] Chun Sang Au Yong: Yeah.
+
+[01:23:14] Ricci Yue: captured here. Like some of the areas are more prone to typhoon hurricane. So again, is not captured here. On policy, again, I'm unsure about the definitions.
+
+[01:23:22] Chun Sang Au Yong: Yeah.
+
+[01:23:26] Ricci Yue: You're talking about some specific schemes, but I think like local governance or the efficiency of the government or even the philosophy of the local council might mean a lot to the people. So again, these are not captures in the variables.
+
+[01:23:44] Chun Sang Au Yong: I see. Thanks for pointing, pointing it out. I think I think we will we will revisit the the. The note definition and make it more and make it more clear. Thanks, Nay Lu.
+
+[01:24:10] Niloofar Shoari: Can you explain a little bit of your logic of the arrow pointing from economic capital to policy access and not the other way around?
+
+[01:24:21] Chun Sang Au Yong: Yes, so, um, so, um... Um... What we think is the is because most of the policy. targets the the low income area. So actually the economical, the economic capital of an area will affect where the that Area receive. Students. But I agree that this is another another easily reversible edge, so we will give it a we will give it more thoughts as we as we as we as we move to the later stage.
+
+[01:25:37] ~CentralHse.305.(6).Bartlett: Right, I think we're about out of time, unfortunately. But yeah,
+
+[01:25:41] Chun Sang Au Yong: Yeah.
+
+[01:25:42] ~CentralHse.305.(6).Bartlett: thanks everyone for joining. This has been really good. I think the main things we need to think about is the definitions and the bidirectionality and also think more about the temporal factors within this. So we'll go off, have a think about all the comments and then refine accordingly. And if you're able to still continue in the review process, that would be really appreciated.
+
+[01:26:20] Chun Sang Au Yong: Thank you everyone for coming. So, yeah.
+
+[01:26:20] ~CentralHse.305.(6).Bartlett: Cool. Thank you.
+
+[01:26:27] Niloofar Shoari: Thank you, thank you.
+
+[01:26:28] ~CentralHse.305.(6).Bartlett: Bye.
+
+[01:26:29] Ricci Yue: Thank you. Bye-bye.
+
+[01:26:29] Jonathon Taylor (TAU): Thank you very much. Bye.
+
+[01:26:35] ~CentralHse.305.(6).Bartlett: The.
+
+[01:26:36] Chun Sang Au Yong: Yeah. Oh, that was hot.
+
+[01:26:43] ~CentralHse.305.(6).Bartlett: Well done, well done. I, we're still...
+
+[01:26:45] Chun Sang Au Yong: Thank you. Oh. Um...

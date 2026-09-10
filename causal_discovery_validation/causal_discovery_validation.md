@@ -1,8 +1,14 @@
 # Causal-discovery validation of the HEE → MH DAG
 
-*Robustness / triangulation analysis for HEE-MH-paper-1. The expert-reviewed DAG
-remains **primary**; data-driven discovery is **corroborating evidence only**.
-All data are cross-sectional and area-level (LSOA), so everything below is
+*Triangulation analysis for HEE-MH-paper-1. Since the September 2026 plan this
+is a **reported section of the paper** ("PC checks", following context → DAG
+construction → expert review), not a supplementary robustness note. The
+expert-reviewed DAG remains **primary**; data-driven discovery is
+**corroborating evidence only**, and the paper should say in advance what a
+PC/FCI disagreement would have meant, and report the FCI caveat (28/39 edges
+bidirected, including all HEE edges).*
+
+*All data are cross-sectional and area-level (LSOA), so everything below is
 **associational structure**. No causal claim is made beyond
 `mental-health/CONCLUSIONS.md`.*
 

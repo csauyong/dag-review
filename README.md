@@ -46,6 +46,18 @@ You'll need a GitHub account. Creating one takes about 60 seconds. Once signed i
 
 All issues are reviewed by the project team before the in-person workshop. The workshop session functions as a final sign-off; the issues are intended to surface contested edges in advance so the limited workshop time can focus on them. The final DAG, together with a record of how each substantive comment was addressed, will appear in the methods section of the resulting paper.
 
+### How this repository maps onto the paper
+
+The paper (`HEE-MH-paper-1`, and thesis chapter 4) runs **context → DAG
+construction → expert review → causal-discovery (PC) checks**, per the plan
+agreed in September 2026. This repository supplies the last three stages: the
+DAG and its evidence tables (`edge_table.tex`, `node_table.tex`), the expert
+review audit trail (GitHub Issues, below), and the constraint-based
+causal-discovery checks in `causal_discovery_validation/` (PC-stable + FCI via
+`causal-learn`, with the shared-layout comparison figure
+`dag_vs_pc_fci_comparison.pdf`). The pilot regression that earlier drafts
+carried has moved to the companion estimation paper.
+
 ---
 
 ## For the project maintainer
