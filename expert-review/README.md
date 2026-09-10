@@ -22,7 +22,12 @@ checkable against one of these files.
 - **Filed written proposals:** 3 — `kalsarikannit80` (Jonathon Taylor, 7 issues, 10 June), `amymizen` (Amy Mizen, 1 issue, 19 June), `nshoari` (Niloofar Shoari, 2 issues, 14 July).
 - **Stage 1** (pre-workshop, GitHub): 8 proposals, 6 nodes flagged, 2 reviewers. All answered 21 June, the day before the workshop.
 - **Stage 2** (workshop, 22 June): 26 substantive interventions from the 5 attendees; 9 produced a change to the graph, a node definition, or the analysis plan.
-- **Stage 3** (post-workshop, from 24 June): 2 proposals, both from `nshoari` on 14 July. **Both are still open and unanswered** — close them before the paper claims every proposal was resolved.
+- **Stage 3** (post-workshop, from 24 June): 2 proposals, both from `nshoari` on 14 July. Resolved in the
+  paper (Table 2): #11 accepted as a clarification, with the `Climate → Housing_Characteristics`
+  rationale amended to state its temporal reading; #12 accepted in part, since both edges of the
+  described pathway are already present and adding the direct `Urbanicity → Accessibility` edge leaves
+  the minimal adjustment set unchanged. **Neither is yet closed on the tracker** — post the two replies
+  and close them, because the paper now states that every substantive proposal was resolved.
 
 ## Regenerating the issue export
 
