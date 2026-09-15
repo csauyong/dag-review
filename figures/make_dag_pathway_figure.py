@@ -152,7 +152,7 @@ def panel_full(ax):
     ax.set_aspect("equal"); ax.axis("off")
     xs = [POS[n][0] for n in POS]; ys = [POS[n][1] for n in POS]
     ax.set_xlim(min(xs) - BW, max(xs) + BW * 0.85)
-    ax.set_ylim(min(ys) - 0.60, max(ys) + 1.02)
+    ax.set_ylim(min(ys) - 0.30, max(ys) + 1.02)
 
     # column headings
     head_y = max(ys) + 0.72
@@ -173,18 +173,14 @@ def panel_full(ax):
 
 
 def legend_block(ax):
-    """Role key, highlighted pathways and adjustment set, in the deck's
-    right-hand panel style. Positions are absolute, not cumulative, so the
-    blocks cannot drift into one another."""
+    """Role key, the two highlighted pathways, and the adjustment set.
+    Labels only; the reading is in the caption and the text."""
     ax.axis("off")
     ax.set_xlim(0, 1); ax.set_ylim(0, 1)
-    ax.add_patch(FancyBboxPatch((0.02, 0.03), 0.96, 0.95,
+    ax.add_patch(FancyBboxPatch((0.02, 0.30), 0.96, 0.68,
                                 boxstyle="round,pad=0.012,rounding_size=0.03",
                                 facecolor="white", edgecolor="#D5DBDF",
                                 lw=1.0, transform=ax.transAxes, zorder=1))
-    ax.text(0.075, 0.940, "Legend", fontsize=9.4, fontweight="bold",
-            color=C_TXT, va="center")
-
     rows = [
         (C_EXPOSURE,  "Exposure (HEE)"),
         (C_OUTCOME,   "Outcome (MH)"),
@@ -194,39 +190,22 @@ def legend_block(ax):
         (C_LATENT,    "Latent (unobserved)"),
     ]
     for i, (col, lab) in enumerate(rows):
-        y = 0.868 - i * 0.061
-        ax.add_patch(FancyBboxPatch((0.075, y - 0.018), 0.050, 0.036,
+        y = 0.925 - i * 0.070
+        ax.add_patch(FancyBboxPatch((0.075, y - 0.020), 0.050, 0.040,
                                     boxstyle="round,pad=0.004,rounding_size=0.012",
                                     facecolor=col, edgecolor=col,
                                     transform=ax.transAxes, zorder=3))
-        ax.text(0.150, y, lab, fontsize=7.4, color=C_TXT, va="center")
+        ax.text(0.150, y, lab, fontsize=7.6, color=C_TXT, va="center")
 
-    ax.plot([0.075, 0.925], [0.462, 0.462], color="#E1E6E9", lw=0.9,
+    ax.plot([0.075, 0.925], [0.470, 0.470], color="#E1E6E9", lw=0.9,
             transform=ax.transAxes)
 
-    ax.text(0.075, 0.418, "Highlighted pathways", fontsize=7.9,
-            fontweight="bold", color=C_TXT, va="center")
-    paths = [
-        (0.340, C_AFFORD, "1   HEE $\\rightarrow$ Fuel Poverty $\\rightarrow$ MH",
-         "affordability of adequate warmth"),
-        (0.232, C_INDOOR, "2   HEE $\\rightarrow$ IEQ $\\rightarrow$ MH",
-         "warmth, damp and mould"),
-    ]
-    for y, col, head, sub in paths:
+    for y, col, lab in ((0.405, C_AFFORD, "Pathway 1: HEE $\\rightarrow$ Fuel Poverty $\\rightarrow$ MH"),
+                        (0.335, C_INDOOR, "Pathway 2: HEE $\\rightarrow$ IEQ $\\rightarrow$ MH")):
         ax.plot([0.075, 0.132], [y, y], color=col, lw=2.4,
                 transform=ax.transAxes, solid_capstyle="round")
-        ax.text(0.150, y, head, fontsize=7.2, color=col, va="center")
-        ax.text(0.150, y - 0.038, sub, fontsize=7.0, color=col, va="center")
+        ax.text(0.150, y, lab, fontsize=7.4, color=col, va="center")
 
-    ax.plot([0.075, 0.925], [0.166, 0.166], color="#E1E6E9", lw=0.9,
-            transform=ax.transAxes)
-
-    ax.text(0.075, 0.124, "Minimal adjustment set $\\mathcal{A}$", fontsize=7.9,
-            fontweight="bold", color=C_ADJ, va="center")
-    ax.text(0.075, 0.068,
-            "Climate · Economic Capital · Housing\ncharacteristics · Tenure · Urbanicity,\n"
-            "returned by the backdoor criterion in dagitty.",
-            fontsize=7.0, color=C_ADJ, va="center", linespacing=1.45)
 
 
 # --------------------------------------------------------------------------- #
@@ -240,9 +219,9 @@ ZLAB = {"HEE": "HEE", "FP": "Fuel\nPoverty", "IEQ": "IEQ", "MH": "Mental\nHealth
 
 
 def panel_zoom(ax):
-    ax.set_title("B.   The two pathways, isolated", fontsize=10.4,
+    ax.set_title("(b)  The two pathways", fontsize=10.4,
                  fontweight="bold", color=C_TXT, pad=6, loc="left")
-    ax.set_xlim(-0.75, 14.20); ax.set_ylim(-0.95, 3.45)
+    ax.set_xlim(-0.75, 12.55); ax.set_ylim(-0.25, 3.45)
     ax.set_aspect("equal"); ax.axis("off")
 
     patches = {}
@@ -286,29 +265,12 @@ def panel_zoom(ax):
     ze("FP", "IEQ", C_AFFORD, lw=1.9, ls=(0, (5, 2.5)))
 
     # captions sit beside the mediator each describes
-    ax.text(11.15, 2.80, "Pathway 1 — affordability", fontsize=9.6,
-            fontweight="bold", color=C_AFFORD, va="center")
-    ax.text(11.15, 2.46, "efficient fabric lowers the cost of adequate warmth",
-            fontsize=7.8, color=C_AFFORD, va="center")
-    ax.text(11.15, 2.14, "measured at LSOA level (LILEE) — testable",
-            fontsize=7.5, color=C_AFFORD, va="center", style="italic")
-
-    ax.text(11.15, 0.66, "Pathway 2 — indoor environment", fontsize=9.6,
-            fontweight="bold", color=C_INDOOR, va="center")
-    ax.text(11.15, 0.32, "efficient fabric changes warmth, damp and mould",
-            fontsize=7.8, color=C_INDOOR, va="center")
-    ax.text(11.15, 0.00, "no area-level measure — untestable here",
-            fontsize=7.5, color=C_INDOOR, va="center", style="italic")
-
-    ax.text(5.60, -0.72,
-            "No HEE $\\rightarrow$ MH edge: the DAG asserts the effect is fully "
-            "mediated, and $\\mathcal{A}$ blocks every backdoor path. The dashed arrow is the\n"
-            "crossover added at expert review — heating rationing under fuel poverty "
-            "also degrades the indoor environment.",
-            ha="center", va="center", fontsize=8.0, color=C_MUTE, linespacing=1.5)
+    ax.text(11.20, 2.58, "measured (LILEE)", fontsize=8.0, color=C_AFFORD,
+            va="center", style="italic")
+    ax.text(11.20, 0.32, "not measured", fontsize=8.0, color=C_INDOOR,
+            va="center", style="italic")
 
 
-# --------------------------------------------------------------------------- #
 def main():
     assert len(ed.RAW_EDGES) == 89, f"expected 89 edges, got {len(ed.RAW_EDGES)}"
     assert set(POS) == set(ed.FULL_NAMES), "layout/node mismatch"
@@ -321,14 +283,14 @@ def main():
     print(f"OK: {len(ed.RAW_EDGES)} edges, {len(POS)} nodes in 7 columns, "
           f"{len(PATH_EDGES)} highlighted; HEE-MH non-adjacent.")
 
-    fig = plt.figure(figsize=(15.4, 9.4))
-    gs = fig.add_gridspec(2, 2, height_ratios=[1.0, 1.045],
+    fig = plt.figure(figsize=(15.4, 7.8))
+    gs = fig.add_gridspec(2, 2, height_ratios=[1.0, 0.68],
                           width_ratios=[1.0, 0.256],
                           hspace=0.04, wspace=0.02,
                           left=0.022, right=0.985, top=0.945, bottom=0.030)
 
     axA = fig.add_subplot(gs[0, 0])
-    axA.set_title("A.   The reviewed DAG — 25 constructs, 89 directed edges",
+    axA.set_title("(a)  The reviewed DAG",
                   fontsize=10.4, fontweight="bold", color=C_TXT, pad=8,
                   loc="left")
     panel_full(axA)

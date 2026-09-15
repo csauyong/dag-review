@@ -78,25 +78,23 @@ def main():
         other = (sorted(k - {"HEE"}) or ["MH"])[0]
         rows.append((other, cell(exp, k), cell(P, k), cell(F, k)))
 
-    fig, ax = plt.subplots(figsize=(12.9, 8.0))
-    ax.set_xlim(0, 12.9); ax.set_ylim(0, 8.0); ax.axis("off")
+    fig, ax = plt.subplots(figsize=(12.9, 6.4))
+    ax.set_xlim(0, 12.9); ax.set_ylim(0, 6.4); ax.axis("off")
 
-    ax.text(0.15, 7.84, "Every edge at HEE, and what each graph says about it",
+    ax.text(0.15, 6.26, "Every edge at HEE, and what each graph says about it",
             fontsize=12.8, fontweight="bold", color=C_TXT, va="top")
-    ax.text(0.15, 7.46,
-            "PC-stable and FCI at $\\alpha = 0.01$, depression prevalence, "
-            "$n = 31{,}802$ LSOAs. Rows are the union of HEE-incident edges "
-            "across the three graphs.",
+    ax.text(0.15, 5.92,
+            "PC-stable and FCI at $\\alpha = 0.01$; depression prevalence; $n = 31{,}802$.",
             fontsize=8.4, color=C_MUTE, va="top")
 
     XN, XE, XP, XF = 0.30, 3.42, 6.15, 9.20
-    ax.text(XN, 7.00, "neighbour of HEE", fontsize=8.4, fontweight="bold", color=C_MUTE)
-    ax.text(XE, 7.00, "Expert DAG", fontsize=8.8, fontweight="bold", color=C_EXP)
-    ax.text(XP, 7.00, "PC-stable", fontsize=8.8, fontweight="bold", color=C_PC)
-    ax.text(XF, 7.00, "FCI", fontsize=8.8, fontweight="bold", color=C_FCI)
-    ax.plot([0.15, 12.75], [6.84, 6.84], color="#9AA1A9", lw=1.0)
+    ax.text(XN, 5.50, "neighbour of HEE", fontsize=8.4, fontweight="bold", color=C_MUTE)
+    ax.text(XE, 5.50, "Expert DAG", fontsize=8.8, fontweight="bold", color=C_EXP)
+    ax.text(XP, 5.50, "PC-stable", fontsize=8.8, fontweight="bold", color=C_PC)
+    ax.text(XF, 5.50, "FCI", fontsize=8.8, fontweight="bold", color=C_FCI)
+    ax.plot([0.15, 12.75], [5.36, 5.36], color="#9AA1A9", lw=1.0)
 
-    y, STEP = 6.54, 0.52
+    y, STEP = 5.06, 0.52
     for i, (other, e, p, f) in enumerate(rows):
         is_mh = other == "MH"
         if is_mh:
@@ -123,21 +121,6 @@ def main():
         y -= STEP
         if i < len(rows) - 1 and not is_mh:
             ax.plot([0.15, 12.75], [y + 0.26, y + 0.26], color="#E8ECEF", lw=0.7)
-
-    # --- the three things this table shows -----------------------------------
-    ax.add_patch(FancyBboxPatch((0.15, 0.18), 12.60, 1.42,
-                                boxstyle="round,pad=0.04,rounding_size=0.12",
-                                facecolor="#FAFBFC", edgecolor="#9AA1A9",
-                                lw=1.2, zorder=1))
-    ax.text(0.45, 1.46, "What the row pattern shows", fontsize=9.2,
-            fontweight="bold", color=C_TXT, va="top")
-    ax.text(0.45, 1.10,
-            "1.  HEE and MH are non-adjacent in all three graphs — the pre-stated falsification condition, not triggered.\n"
-            "2.  Three of the five adjustment-set edges into HEE (Climate, Economic Capital, Urbanicity) are recovered by neither algorithm:\n"
-            "      the check is silent on exactly the edges identification depends on.\n"
-            "3.  PC reverses two of the expert edges it does recover, and FCI marks all five HEE edges latent-confounded — which is why no\n"
-            "      orientation reported here is read as evidence about causal direction.",
-            fontsize=7.9, color=C_TXT, va="top", linespacing=1.6)
 
     for ext in ("png", "pdf"):
         out = os.path.join(HERE, f"hee_neighbourhood.{ext}")
